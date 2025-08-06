@@ -1,0 +1,173 @@
+{
+  "validation": {
+    "required": "{{field}} wajib diisi",
+    "unique": "{{field}} harus unik",
+    "password": {
+      "min": "Kata sandi minimal terdiri dari 8 karakter",
+      "uppercase": "Kata sandi harus mengandung setidaknya satu huruf kapital",
+      "lowercase": "Kata sandi harus mengandung setidaknya satu huruf kecil",
+      "number": "Kata sandi harus mengandung setidaknya satu angka",
+      "symbol": "Kata sandi harus mengandung setidaknya satu simbol",
+      "invalid": "{{field}} tidak valid"
+    },
+    "email": {
+      "exists": "Email sudah terdaftar"
+    },
+    "username": {
+      "exists": "Username sudah terdaftar"
+    },
+    "exists": "{{field}} sudah terdaftar",
+    "invalid": "{{field}} tidak valid",
+    "notFound": "Data tidak ditemukan"
+  },
+  "familyCard": {
+    "family_id": {
+      "required": "ID Keluarga wajib diisi",
+      "min": "ID Keluarga minimal terdiri dari 16 karakter",
+      "exists": "ID Keluarga sudah terdaftar"
+    },
+    "address": {
+      "required": "Alamat wajib diisi"
+    },
+    "total_family": {
+      "required": "Jumlah keluarga wajib diisi",
+      "min": "Jumlah keluarga minimal 1"
+    }
+  },
+  "message": {
+    "createSuccess": "Data berhasil disimpan.",
+    "updateSuccess": "Data berhasil diperbarui.",
+    "deleteSuccess": "Data berhasil dihapus.",
+    "error": "Terjadi kesalahan saat menyimpan data.",
+    "notFound": "Data tidak ditemukan."
+  },
+  "residents": {
+    "resident_id": {
+      "required": "NIK wajib diisi",
+      "min": "NIK harus terdiri dari minimal 16 karakter",
+      "exists": "NIK sudah terdaftar"
+    },
+    "family_card_id": {
+      "required": "Nomor Kartu Keluarga wajib diisi"
+    },
+    "fullname": {
+      "required": "Nama lengkap wajib diisi"
+    },
+    "gender": {
+      "required": "Jenis kelamin wajib diisi"
+    },
+    "religion": {
+      "required": "Agama wajib diisi"
+    },
+    "citizen_status": {
+      "required": "Status kewarganegaraan wajib diisi"
+    },
+    "place_of_birth": {
+      "required": "Tempat lahir wajib diisi"
+    },
+    "date_of_birth": {
+      "required": "Tanggal lahir wajib diisi"
+    },
+    "family_status": {
+      "required": "Status dalam keluarga wajib diisi"
+    },
+    "address": {
+      "required": "Alamat wajib diisi"
+    },
+    "file": {
+      "type": "Ekstensi file harus berupa png, jpg, atau jpeg.",
+      "size": "Ukuran maksimum gambar adalah 2MB"
+    },
+    "profesion": {
+      "required": "Profesi wajib diisi"
+    }
+  },
+  "employees": {
+    "employee_id": {
+      "min": "NIK harus terdiri dari minimal 16 karakter.",
+      "required": "NIK wajib diisi.",
+      "exists": "NIK sudah terdaftar"
+    },
+    "fullname": {
+      "required": "Nama lengkap wajib diisi."
+    },
+    "gender": {
+      "required": "Jenis kelamin wajib dipilih."
+    },
+    "religion": {
+      "required": "Agama wajib dipilih."
+    },
+    "place_of_birth": {
+      "required": "Tempat lahir wajib diisi."
+    },
+    "date_of_birth": {
+      "required": "Tanggal lahir wajib diisi."
+    },
+    "position": {
+      "required": "Jabatan wajib diisi."
+    },
+    "createSuccess": "Aparatur berhasil ditambahkan.",
+    "file": {
+      "type": "Ekstensi file harus berupa png, jpg, atau jpeg.",
+      "size": "Ukuran maksimum gambar adalah 2MB"
+    }
+  },
+  "incomingLetters": {
+    "code": {
+      "required": "No. Surat harus diisi.",
+      "exists": "No. Surat sudah terdaftar"
+    },
+    "date_of_letter": {
+      "required": "Tanggal surat harus diisi."
+    },
+    "sender": {
+      "required": "Pengirim surat harus diisi."
+    },
+    "regarding": {
+      "required": "Perihal surat harus diisi."
+    },
+    "status_letter": {
+      "required": "Status surat harus diisi."
+    },
+    "createSuccess": "Surat masuk berhasil ditambahkan.",
+    "file": {
+      "required": "File wajib diunggah.",
+      "size": "Ukuran file maksimal adalah 2MB.",
+      "type": "File harus berformat .pdf."
+    }
+  },
+  "outgoingLetters": {
+    "code": {
+      "required": "No. Surat wajib diisi.",
+      "exists": "No. Surat sudah digunakan."
+    },
+    "date_of_letter": {
+      "required": "Tanggal surat wajib diisi."
+    },
+    "regarding": {
+      "required": "Perihal surat wajib diisi."
+    },
+    "objective": {
+      "required": "Tujuan surat wajib diisi."
+    },
+    "status_letter": {
+      "required": "Status surat wajib diisi."
+    },
+    "file": {
+      "required": "Berkas wajib diunggah.",
+      "size": "Ukuran maksimum berkas adalah 2MB.",
+      "type": "Hanya berkas PDF yang diperbolehkan."
+    }
+  },
+  "Invalid input": " expected array, received object",
+  "periods": {
+    "year": {
+      "required": "Tahun periode wajib diisi",
+      "exists": "Tahun periode sudah terdaftar"
+    },
+    "file": {
+      "size": "Ukuran maksimum berkas adalah 2MB.",
+      "type": "Hanya berkas PDF yang diperbolehkan."
+    }
+  }
+}

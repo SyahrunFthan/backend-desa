@@ -1,0 +1,50 @@
+POST http://localhost:5001/role
+Accept-Language: en
+Content-Type: application/json
+
+{
+    "name": "Admin",
+    "key": "admin"
+}
+
+###
+PUT http://localhost:5001/role/4ea2306e-9c18-4fea-8c58-7ac7cc6ba066
+Content-Type: application/json
+Accept-Language: en
+
+{
+    "name": "Admin",
+    "key": "admin"
+}
+
+###
+DELETE http://localhost:5001/role/4ea2306e-9c18-4fea-8c58-7ac7cc6ba066
+
+###
+POST http://localhost:5001/user
+Content-Type: application/json
+Accept-Language: en
+
+{
+    "email": "syahrulmei002@gmail.com",
+    "password": "@Syahrun19",
+    "username": "028312910",
+    "role_id": "50fc3a5a-a862-44af-b516-5fd98b9be971",
+    "resident_id": "21de6704-013c-43be-afec-294edb4887a3"
+}
+
+###
+PUT http://localhost:5001/user/ef213461-def5-4cb3-bfc9-d3a7a588b109
+Content-Type: application/json
+
+{
+    "email": "syahrulmei002@gmail.com",
+    "password": "@Syahrun19",
+    "username": "028312910",
+    "role_id": "74717d93-a64a-4990-8ea5-fa623ce40e02",
+    "resident_id": "21de6704-013c-43be-afec-294edb4887a3",
+    "password_old": "@Syahrun19"
+}
+
+###
+DELETE http://localhost:5001/user/1b477a22-fc97-4b18-8dd1-d14004622aee

@@ -1,7 +1,36 @@
-.env
-/node_modules
-/package-lock.json
+# Abaikan semua isi dari folder public dan private
+/public/**
 
-/public/**        # Abaikan semua isi dalam folder public
+# Kecualikan semua subfolder agar strukturnya tetap terikut
 !/public/
+!public/**/
+!public/default.png
+
+# Tambahkan file kosong .gitkeep di setiap subfolder jika perlu
 !public/**/.gitkeep
+
+# Abaikan file log dan lainnya
+/logs
+*.log
+npm-debug.log*
+/node_modules
+*.rest
+
+.env
+
+.DS_Store
+Thumbs.db
+
+/dist
+/build
+
+.vscode/
+.idea/
+
+/coverage/
+
+.db/
+
+*.swp
+*.swo
+/package-lock.json

@@ -182,5 +182,19 @@
     "exists": {
       "code": "Kode sudah digunakan"
     }
+  },
+  "expense": {
+    "required": {
+      "period_id": "Periode wajib dipilih.",
+      "code": "Kode wajib diisi.",
+      "name": "Nama wajib diisi.",
+      "funding_source_id": "Sumber dana wajib dipilih.",
+      "volume": "Volume wajib diisi.",
+      "unit": "Unit wajib diisi.",
+      "amount": "Jumlah wajib diisi."
+    },
+    "unique": {
+      "code": "Kode sudah digunakan."
+    }
   }
 }

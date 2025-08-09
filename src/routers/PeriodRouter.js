@@ -5,6 +5,8 @@ import {
   destroy,
   update,
   upload,
+  showWithIncome,
+  showWithExpense,
 } from "../controllers/PeriodController.js";
 import Validation from "../middlewares/Validation.js";
 import verifyToken from "../middlewares/VerifyToken.js";
@@ -17,6 +19,8 @@ import {
 const router = express.Router();
 
 router.get("/", verifyToken, verifyRole(["admin"]), index);
+router.get("/:id/income", verifyToken, verifyRole(["admin"]), showWithIncome);
+router.get("/:id/expense", verifyToken, verifyRole(["admin"]), showWithExpense);
 router.post(
   "/",
   verifyToken,

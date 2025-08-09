@@ -18,7 +18,9 @@ import IncomingLetterRouter from "./routers/IncomingLetterRouter.js";
 import OutgoingLetterRouter from "./routers/OutgoingLetterRouter.js";
 import PeriodRouter from "./routers/PeriodRouter.js";
 import IncomeRouter from "./routers/IncomeRouter.js";
-// import createModel from "./models/Income.js";
+import ExpenseRouter from "./routers/ExpenseRouter.js";
+import RegionRouter from "./routers/RegionRouter.js";
+// import createModel from "./models/Region.js";
 dotenv.config();
 
 const app = express();
@@ -63,6 +65,8 @@ app.use("/incoming-letter", IncomingLetterRouter);
 app.use("/outgoing-letter", OutgoingLetterRouter);
 app.use("/period", PeriodRouter);
 app.use("/income", IncomeRouter);
+app.use("/expense", ExpenseRouter);
+app.use("/region", RegionRouter);
 
 const port = 5001;
 app.listen(port, () => console.log(`Server run at port ${port}`));

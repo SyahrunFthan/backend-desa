@@ -42,10 +42,6 @@ const Expense = db.define(
       allowNull: false,
       comment: "Ex: Point Utama",
     },
-    year: {
-      type: DataTypes.INTEGER(5),
-      allowNull: false,
-    },
   },
   {
     freezeTableName: true,

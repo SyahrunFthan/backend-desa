@@ -1,6 +1,9 @@
 import Period from "../models/Period.js";
 import path from "path";
 import fs from "fs";
+import { Op } from "sequelize";
+import Income from "../models/Income.js";
+import Expense from "../models/Expense.js";
 
 export const index = async (req, res) => {
   try {
@@ -23,6 +26,78 @@ export const index = async (req, res) => {
     const periods = await Period.findAll();
 
     return res.status(200).json({ periods, total, rows });
+  } catch (error) {
+    return res.status(500).json({ message: res.__("message.error") });
+  }
+};
+
+export const showWithIncome = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const period = await Period.findByPk(id);
+    if (!period)
+      return res.status(404).json({ message: res.__("message.not_found") });
+
+    const { page = 1, page_size = 5, code, name, abbreviation } = req.query;
+    const limit = Number(page_size);
+    const current = Number(page);
+    const offset = (current - 1) * limit;
+
+    const where = {
+      ...(code && { code: { [Op.like]: `%${code}%` } }),
+      ...(name && { name: { [Op.like]: `%${name}%` } }),
+      ...(abbreviation && { abbreviation: { [Op.like]: `%${abbreviation}%` } }),
+      period_id: id,
+    };
+
+    const { count: total, rows: incomes } = await Income.findAndCountAll({
+      where,
+      limit,
+      offset,
+      order: [["createdAt", "DESC"]],
+    });
+
+    return res.status(200).json({ total, incomes });
+  } catch (error) {
+    return res.status(500).json({ message: res.__("message.error") });
+  }
+};
+
+export const showWithExpense = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const period = await Period.findByPk(id);
+    if (!period)
+      return res.status(404).json({ message: res.__("message.not_found") });
+
+    const { page = 1, page_size = 5, code, name } = req.query;
+
+    const limit = Number(page_size);
+    const current = Number(page);
+    const offset = (current - 1) * limit;
+
+    const where = {
+      ...(code && { code: { [Op.like]: `%${code}%` } }),
+      ...(name && { name: { [Op.like]: `%${name}%` } }),
+      period_id: id,
+      is_main: true,
+    };
+
+    const { count: total, rows: expenses } = await Expense.findAndCountAll({
+      include: [
+        {
+          model: Income,
+          as: "income",
+          foreignKey: "funding_source_id",
+        },
+      ],
+      where,
+      limit,
+      offset,
+      order: [["createdAt", "DESC"]],
+    });
+
+    return res.status(200).json({ total, expenses });
   } catch (error) {
     return res.status(500).json({ message: res.__("message.error") });
   }

@@ -20,7 +20,7 @@ const Region = db.define(
       allowNull: false,
     },
     geo_json: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT("long"),
       allowNull: false,
     },
     color: {

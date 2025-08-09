@@ -2,17 +2,16 @@ import express from "express";
 import {
   index,
   store,
-  destroy,
   update,
-  upload,
-} from "../controllers/PeriodController.js";
+  destroy,
+} from "../controllers/IncomeController.js";
 import Validation from "../middlewares/Validation.js";
 import verifyToken from "../middlewares/VerifyToken.js";
 import verifyRole from "../middlewares/VerifyRole.js";
 import {
-  periodCreateSchema,
-  periodUpdateSchema,
-} from "../validations/PeriodValidation.js";
+  incomeCreateSchema,
+  incomeUpdateSchema,
+} from "../validations/IncomeValidation.js";
 
 const router = express.Router();
 
@@ -21,17 +20,16 @@ router.post(
   "/",
   verifyToken,
   verifyRole(["admin"]),
-  Validation(periodCreateSchema),
+  Validation(incomeCreateSchema),
   store
 );
 router.put(
   "/:id",
   verifyToken,
   verifyRole(["admin"]),
-  Validation(periodUpdateSchema),
+  Validation(incomeUpdateSchema),
   update
 );
-router.patch("/:id", verifyToken, verifyRole(["admin"]), upload);
 router.delete("/:id", verifyToken, verifyRole(["admin"]), destroy);
 
 export default router;

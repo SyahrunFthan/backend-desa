@@ -28,12 +28,9 @@ const Income = db.define(
       allowNull: false,
       comment: "Ex: ADD",
     },
-    year: {
-      type: DataTypes.INTEGER(5),
-      allowNull: false,
-    },
     amount: {
       type: DataTypes.INTEGER,
+      allowNull: false,
     },
   },
   {

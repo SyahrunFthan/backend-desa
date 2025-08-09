@@ -169,5 +169,18 @@
       "size": "Ukuran maksimum berkas adalah 2MB.",
       "type": "Hanya berkas PDF yang diperbolehkan."
     }
+  },
+  "incomes": {
+    "required": {
+      "period_id": "Periode wajib diisi",
+      "code": "Kode wajib diisi",
+      "name": "Nama wajib diisi",
+      "abbreviation": "Singkatan wajib diisi",
+      "year": "Tahun wajib diisi",
+      "amount": "Jumlah wajib diisi"
+    },
+    "exists": {
+      "code": "Kode sudah digunakan"
+    }
   }
 }

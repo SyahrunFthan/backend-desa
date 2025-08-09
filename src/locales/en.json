@@ -173,5 +173,18 @@
       "size": "The maximum allowed file size is 2MB.",
       "type": "Only PDF files are allowed."
     }
+  },
+  "incomes": {
+    "required": {
+      "period_id": "Period is required",
+      "code": "Code is required",
+      "name": "Name is required",
+      "abbreviation": "Abbreviation is required",
+      "year": "Year is required",
+      "amount": "Amount is required"
+    },
+    "exists": {
+      "code": "Code already exists"
+    }
   }
 }

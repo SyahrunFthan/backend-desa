@@ -30,32 +30,7 @@ export const index = async (req, res) => {
 
 export const store = async (req, res) => {
   try {
-    let filename = null;
-    let filepath = null;
-    if (req.files && req.files.file) {
-      const file = req.files.file;
-      const filesize = file.data.length;
-      const ext = path.extname(file.name);
-      const allowedTypes = [".pdf"];
-      if (!allowedTypes.includes(ext.toLowerCase()))
-        return res.status(422).json({ file: res.__("periods.file.type") });
-
-      if (filesize > 1024 * 1024 * 2)
-        return res.status(422).json({ file: res.__("periods.file.size") });
-
-      filename = Date.now() + ext;
-      filepath = `${req.protocol}://${req.get(
-        "host"
-      )}/public/periods/${filename}`;
-
-      await file.mv(`public/periods/${filename}`);
-    }
-
-    await Period.create({
-      ...req.body,
-      file: filename,
-      path_file: filepath,
-    });
+    await Period.create(req.body);
 
     return res.status(201).json({ message: res.__("message.createSuccess") });
   } catch (error) {
@@ -71,33 +46,42 @@ export const update = async (req, res) => {
     if (!period)
       return res.status(404).json({ message: res.__("message.notFound") });
 
-    let filename = period.file;
-    let filepath = period.path_file;
-    if (req.files && req.files.file) {
-      const file = req.files.file;
-      const filesize = file.data.length;
-      const ext = path.extname(file.name);
-      const allowedTypes = [".pdf"];
-      if (!allowedTypes.includes(ext.toLowerCase()))
-        return res.status(422).json({ file: res.__("periods.file.type") });
+    await period.update(req.body);
 
-      if (filesize > 1024 * 1024 * 2)
-        return res.status(422).json({ file: res.__("periods.file.size") });
+    return res.status(200).json({ message: res.__("message.updateSuccess") });
+  } catch (error) {
+    return res.status(500).json({ message: res.__("message.error") });
+  }
+};
 
-      if (period.file !== null) {
-        fs.unlinkSync(`public/periods/${period.file}`);
-      }
+export const upload = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const period = await Period.findByPk(id);
+    if (!period)
+      return res.status(404).json({ message: res.__("message.notFound") });
 
-      filename = Date.now() + ext;
-      filepath = `${req.protocol}://${req.get(
-        "host"
-      )}/public/periods/${filename}`;
+    const file = req.files.file;
+    const filesize = file.data.length;
+    const ext = path.extname(file.name);
+    const allowedTypes = [".pdf"];
+    if (!allowedTypes.includes(ext.toLowerCase()))
+      return res.status(422).json({ message: res.__("periods.file.type") });
+    if (filesize > 1024 * 1024 * 2)
+      return res.status(422).json({ message: res.__("periods.file.size") });
 
-      await file.mv(`public/periods/${filename}`);
+    if (period.file !== null) {
+      fs.unlinkSync(`public/periods/${period.file}`);
     }
 
+    const filename = Date.now() + ext;
+    const filepath = `${req.protocol}://${req.get(
+      "host"
+    )}/public/periods/${filename}`;
+
+    await file.mv(`public/periods/${filename}`);
+
     await period.update({
-      ...req.body,
       file: filename,
       path_file: filepath,
     });

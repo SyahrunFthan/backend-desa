@@ -24,6 +24,28 @@ const regionCreateSchema = z
         message: "region.unique.leader_id",
       });
     }
+
+    const existColors = await Region.findOne({
+      where: {
+        color: data.color,
+      },
+    });
+
+    if (existColors) {
+      ctx.addIssue({
+        path: ["color"],
+        code: "custom",
+        message: "region.unique.color",
+      });
+    }
+
+    if (data.geo_json === "") {
+      ctx.addIssue({
+        path: ["file"],
+        code: "custom",
+        message: "region.required.geo_json",
+      });
+    }
   });
 
 const regionUpdateSchema = z
@@ -50,6 +72,31 @@ const regionUpdateSchema = z
         path: ["leader_id"],
         code: "custom",
         message: "region.unique.leader_id",
+      });
+    }
+
+    const existColors = await Region.findOne({
+      where: {
+        color: data.color,
+        id: {
+          [Op.ne]: data.id,
+        },
+      },
+    });
+
+    if (existColors) {
+      ctx.addIssue({
+        path: ["color"],
+        code: "custom",
+        message: "region.unique.color",
+      });
+    }
+
+    if (data.geo_json === "") {
+      ctx.addIssue({
+        path: ["file"],
+        code: "custom",
+        message: "region.required.geo_json",
       });
     }
   });

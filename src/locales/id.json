@@ -196,5 +196,18 @@
     "unique": {
       "code": "Kode sudah digunakan."
     }
+  },
+  "region": {
+    "required": {
+      "leader_id": "Pemimpin wajib diisi",
+      "name": "Nama wajib diisi",
+      "geo_json": "Geo Json wajib diisi",
+      "color": "Warna wajib diisi",
+      "land_area": "Luas wilayah wajib diisi"
+    },
+    "unique": {
+      "leader_id": "Pemimpin sudah ada",
+      "color": "Warna sudah digunakan"
+    }
   }
 }

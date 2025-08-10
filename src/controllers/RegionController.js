@@ -1,4 +1,47 @@
+import { Op } from "sequelize";
 import Region from "../models/Region.js";
+import Employee from "../models/Employee.js";
+
+export const index = async (req, res) => {
+  try {
+    const { page = 1, page_size = 5, search } = req.query;
+
+    const limit = Number(page_size);
+    const current = Number(page);
+    const offset = (current - 1) * limit;
+
+    const where = {
+      ...(search && { name: { [Op.like]: `%${search}%` } }),
+    };
+
+    const { count: total, rows } = await Region.findAndCountAll({
+      include: [
+        {
+          model: Employee,
+          as: "leader",
+          foreignKey: "leader_id",
+        },
+      ],
+      where,
+      limit,
+      offset,
+      order: [["createdAt", "DESC"]],
+    });
+
+    const leaders = await Employee.findAll({
+      where: {
+        level: 0,
+      },
+      order: [["fullname", "ASC"]],
+    });
+
+    const regions = await Region.findAll();
+
+    return res.status(200).json({ total, regions, leaders, rows });
+  } catch (error) {
+    return res.status(500).json({ message: res.__("message.error") });
+  }
+};
 
 export const store = async (req, res) => {
   try {

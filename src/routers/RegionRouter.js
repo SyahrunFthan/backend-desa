@@ -1,5 +1,10 @@
 import express from "express";
-import { store, update, destroy } from "../controllers/RegionController.js";
+import {
+  store,
+  update,
+  destroy,
+  index,
+} from "../controllers/RegionController.js";
 import verifyToken from "../middlewares/VerifyToken.js";
 import verifyRole from "../middlewares/VerifyRole.js";
 import Validation from "../middlewares/Validation.js";
@@ -10,6 +15,7 @@ import {
 
 const router = express.Router();
 
+router.get("/", verifyToken, verifyRole(["admin"]), index);
 router.post(
   "/",
   verifyToken,

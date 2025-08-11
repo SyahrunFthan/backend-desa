@@ -20,7 +20,9 @@ import PeriodRouter from "./routers/PeriodRouter.js";
 import IncomeRouter from "./routers/IncomeRouter.js";
 import ExpenseRouter from "./routers/ExpenseRouter.js";
 import RegionRouter from "./routers/RegionRouter.js";
-// import createModel from "./models/Region.js";
+import RWUnitRouter from "./routers/RWUnitRouter.js";
+import RTUnitRouter from "./routers/RTUnitRouter.js";
+// import createModel from "./models/RTUnit.js";
 dotenv.config();
 
 const app = express();
@@ -67,6 +69,8 @@ app.use("/period", PeriodRouter);
 app.use("/income", IncomeRouter);
 app.use("/expense", ExpenseRouter);
 app.use("/region", RegionRouter);
+app.use("/rw-unit", RWUnitRouter);
+app.use("/rt-unit", RTUnitRouter);
 
 const port = 5001;
 app.listen(port, () => console.log(`Server run at port ${port}`));

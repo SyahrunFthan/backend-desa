@@ -214,5 +214,24 @@
       "leader_id": "Leader already exists",
       "color": "Color already exists"
     }
+  },
+  "rw_unit": {
+    "required": {
+      "code": "Code is required",
+      "name_of_chairman": "Name of chairman is required"
+    },
+    "unique": {
+      "code": "Code already exists"
+    }
+  },
+  "rt_unit": {
+    "required": {
+      "code": "Code is required",
+      "name_of_chairman": "Name of chairman is required",
+      "rw_id": "RW is required"
+    },
+    "unique": {
+      "code": "Code already exists"
+    }
   }
 }

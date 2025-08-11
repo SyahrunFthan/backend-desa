@@ -209,5 +209,24 @@
       "leader_id": "Pemimpin sudah ada",
       "color": "Warna sudah digunakan"
     }
+  },
+  "rw_unit": {
+    "required": {
+      "code": "Kode wajib diisi",
+      "name_of_chairman": "Nama ketua wajib diisi"
+    },
+    "unique": {
+      "code": "Kode sudah digunakan"
+    }
+  },
+  "rt_unit": {
+    "required": {
+      "code": "Kode wajib diisi",
+      "name_of_chairman": "Nama ketua wajib diisi",
+      "rw_id": "RW wajib diisi"
+    },
+    "unique": {
+      "code": "Kode sudah digunakan"
+    }
   }
 }

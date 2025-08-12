@@ -22,6 +22,7 @@ import ExpenseRouter from "./routers/ExpenseRouter.js";
 import RegionRouter from "./routers/RegionRouter.js";
 import RWUnitRouter from "./routers/RWUnitRouter.js";
 import RTUnitRouter from "./routers/RTUnitRouter.js";
+import ServiceRouter from "./routers/ServiceRouter.js";
 // import createModel from "./models/RTUnit.js";
 dotenv.config();
 
@@ -71,6 +72,7 @@ app.use("/expense", ExpenseRouter);
 app.use("/region", RegionRouter);
 app.use("/rw-unit", RWUnitRouter);
 app.use("/rt-unit", RTUnitRouter);
+app.use("/service", ServiceRouter);
 
 const port = 5001;
 app.listen(port, () => console.log(`Server run at port ${port}`));

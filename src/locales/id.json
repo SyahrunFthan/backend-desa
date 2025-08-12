@@ -228,5 +228,20 @@
     "unique": {
       "code": "Kode sudah digunakan"
     }
+  },
+  "service": {
+    "required": {
+      "file": "File wajib diunggah",
+      "name": "Nama wajib diisi",
+      "type_service": "Kategori layanan wajib diisi",
+      "status_service": "Status layanan wajib diisi"
+    },
+    "unique": {
+      "name": "Nama sudah ada"
+    },
+    "file": {
+      "size": "Ukuran gambar maksimum 2 MB",
+      "type": "File harus berformat .pdf atau .docx"
+    }
   }
 }

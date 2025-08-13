@@ -24,6 +24,15 @@ const AssistanceCategory = db.define(
     amount: {
       type: DataTypes.INTEGER,
     },
+    status: {
+      type: DataTypes.ENUM("active", "inactive"),
+      allowNull: false,
+      defaultValue: "active",
+    },
+    year: {
+      type: DataTypes.INTEGER(5),
+      allowNull: false,
+    },
   },
   {
     freezeTableName: true,

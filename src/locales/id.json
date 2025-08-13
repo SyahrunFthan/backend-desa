@@ -243,5 +243,26 @@
       "size": "Ukuran gambar maksimum 2 MB",
       "type": "File harus berformat .pdf atau .docx"
     }
+  },
+  "assistanceCategory": {
+    "required": {
+      "name": "Nama wajib diisi",
+      "type_assistance": "Jenis pembayaran wajib diisi"
+    },
+    "unique": {
+      "name": "Nama sudah ada"
+    }
+  },
+  "socialAssistance": {
+    "unique": {
+      "resident_id": "Penduduk sudah terdaftar"
+    },
+    "required": {
+      "resident_id": "Penduduk wajib diisi",
+      "assistance_id": "Kategori wajib diisi",
+      "status_assistance": "Status wajib diisi",
+      "month_of_aid": "Bulan wajib diisi",
+      "receipt_at": "Tanggal penerimaan wajib diisi"
+    }
   }
 }

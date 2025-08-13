@@ -248,5 +248,28 @@
       "size": "Max image size 2mb",
       "type": "File must be a .pdf or .docx"
     }
+  },
+  "assistanceCategory": {
+    "required": {
+      "name": "Name is required",
+      "type_assistance": "Payment type is required",
+      "status": "Status is required",
+      "year": "Year is required"
+    },
+    "unique": {
+      "name": "Name already exists"
+    }
+  },
+  "socialAssistance": {
+    "unique": {
+      "resident_id": "Resident have been registered"
+    },
+    "required": {
+      "resident_id": "Resident is required",
+      "assistance_id": "Category is required",
+      "status_assistance": "Status is required",
+      "month_of_aid": "Month is required",
+      "receipt_at": "Date of receipt is required"
+    }
   }
 }

@@ -23,7 +23,9 @@ import RegionRouter from "./routers/RegionRouter.js";
 import RWUnitRouter from "./routers/RWUnitRouter.js";
 import RTUnitRouter from "./routers/RTUnitRouter.js";
 import ServiceRouter from "./routers/ServiceRouter.js";
-// import createModel from "./models/RTUnit.js";
+import AssistanceCategoryRouter from "./routers/AssistanceCategoryRouter.js";
+import SocialAssistanceRouter from "./routers/SocialAssistanceRouter.js";
+// import createModel from "./models/SocialAssistance.js";
 dotenv.config();
 
 const app = express();
@@ -73,6 +75,8 @@ app.use("/region", RegionRouter);
 app.use("/rw-unit", RWUnitRouter);
 app.use("/rt-unit", RTUnitRouter);
 app.use("/service", ServiceRouter);
+app.use("/assistance-category", AssistanceCategoryRouter);
+app.use("/social-assistance", SocialAssistanceRouter);
 
 const port = 5001;
 app.listen(port, () => console.log(`Server run at port ${port}`));

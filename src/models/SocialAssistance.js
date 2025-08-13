@@ -25,6 +25,14 @@ const SocialAssistance = db.define(
       allowNull: false,
       defaultValue: "active",
     },
+    month_of_aid: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
+    },
+    receipt_at: {
+      type: DataTypes.DATEONLY(),
+      allowNull: false,
+    },
   },
   {
     freezeTableName: true,

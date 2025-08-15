@@ -264,5 +264,20 @@
       "month_of_aid": "Bulan wajib diisi",
       "receipt_at": "Tanggal penerimaan wajib diisi"
     }
+  },
+  "tax": {
+    "required": {
+      "resident_id": "Penduduk wajib diisi",
+      "reference_number": "Nomor referensi wajib diisi",
+      "taxpayer_name": "Nama wajib pajak wajib diisi",
+      "taxpayer_address": "Alamat wajib pajak wajib diisi",
+      "land_area": "Luas tanah wajib diisi",
+      "building_area": "Luas bangunan wajib diisi",
+      "amount": "Jumlah wajib diisi",
+      "status": "Status pembayaran wajib diisi"
+    },
+    "unique": {
+      "reference_number": "Nomor referensi sudah terdaftar"
+    }
   }
 }

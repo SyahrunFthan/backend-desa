@@ -25,7 +25,8 @@ import RTUnitRouter from "./routers/RTUnitRouter.js";
 import ServiceRouter from "./routers/ServiceRouter.js";
 import AssistanceCategoryRouter from "./routers/AssistanceCategoryRouter.js";
 import SocialAssistanceRouter from "./routers/SocialAssistanceRouter.js";
-// import createModel from "./models/SocialAssistance.js";
+import TaxRouter from "./routers/TaxRouter.js";
+// import createModel from "./models/Tax.js";
 dotenv.config();
 
 const app = express();
@@ -77,6 +78,7 @@ app.use("/rt-unit", RTUnitRouter);
 app.use("/service", ServiceRouter);
 app.use("/assistance-category", AssistanceCategoryRouter);
 app.use("/social-assistance", SocialAssistanceRouter);
+app.use("/tax", TaxRouter);
 
 const port = 5001;
 app.listen(port, () => console.log(`Server run at port ${port}`));

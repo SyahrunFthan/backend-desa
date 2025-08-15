@@ -271,5 +271,20 @@
       "month_of_aid": "Month is required",
       "receipt_at": "Date of receipt is required"
     }
+  },
+  "tax": {
+    "required": {
+      "resident_id": "Resident is required",
+      "reference_number": "Reference number is required",
+      "taxpayer_name": "Taxpayer name is required",
+      "taxpayer_address": "Taxpayer address is required",
+      "land_area": "Land area is required",
+      "building_area": "Building area is required",
+      "amount": "Amount is required",
+      "status": "Status payment is required"
+    },
+    "unique": {
+      "reference_number": "Reference number already exists"
+    }
   }
 }

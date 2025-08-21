@@ -286,5 +286,20 @@
     "unique": {
       "reference_number": "Reference number already exists"
     }
+  },
+  "development": {
+    "required": {
+      "name": "Development name is required",
+      "location": "Location is required",
+      "volume": "Volume is required.",
+      "budget": "Budget is required",
+      "source_of_fund": "Source of fund is required",
+      "latitude": "Latitude is required",
+      "longitude": "Longitude is required",
+      "start_at": "Start at is required",
+      "end_at": "Ens at is required",
+      "status": "Status is required",
+      "year": "Year is required"
+    }
   }
 }

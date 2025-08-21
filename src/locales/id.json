@@ -279,5 +279,20 @@
     "unique": {
       "reference_number": "Nomor referensi sudah terdaftar"
     }
+  },
+  "development": {
+    "required": {
+      "name": "Nama pembangunan wajib diisi",
+      "location": "Lokasi wajib diisi",
+      "volume": "Volume wajib diisi",
+      "budget": "Anggaran wajib diisi",
+      "source_of_fund": "Sumber dana wajib diisi",
+      "latitude": "Garis lintang wajib diisi",
+      "longitude": "Garis bujur wajib diisi",
+      "start_at": "Tanggal mulai wajib diisi",
+      "end_at": "Tanggal selesai wajib diisi",
+      "status": "Status wajib diisi",
+      "year": "Tahun wajib diisi"
+    }
   }
 }

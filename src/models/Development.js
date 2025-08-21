@@ -20,6 +20,7 @@ const Development = db.define(
     },
     volume: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
     budget: {
       type: DataTypes.INTEGER,
@@ -43,6 +44,14 @@ const Development = db.define(
     },
     end_at: {
       type: DataTypes.DATEONLY,
+      allowNull: false,
+    },
+    status: {
+      type: DataTypes.ENUM("process", "start", "finish"),
+      allowNull: false,
+    },
+    year: {
+      type: DataTypes.INTEGER(5),
       allowNull: false,
     },
   },

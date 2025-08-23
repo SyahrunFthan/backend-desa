@@ -27,6 +27,7 @@ import AssistanceCategoryRouter from "./routers/AssistanceCategoryRouter.js";
 import SocialAssistanceRouter from "./routers/SocialAssistanceRouter.js";
 import TaxRouter from "./routers/TaxRouter.js";
 import DevelopmentRouter from "./routers/DevelopmentRouter.js";
+import ActivityRouter from "./routers/ActivityRouter.js";
 // import createModel from "./models/Development.js";
 dotenv.config();
 
@@ -81,6 +82,7 @@ app.use("/assistance-category", AssistanceCategoryRouter);
 app.use("/social-assistance", SocialAssistanceRouter);
 app.use("/tax", TaxRouter);
 app.use("/development", DevelopmentRouter);
+app.use("/activity", ActivityRouter);
 
 const port = 5001;
 app.listen(port, () => console.log(`Server run at port ${port}`));

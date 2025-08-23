@@ -5,6 +5,7 @@
 !/public/
 !public/**/
 !public/default.png
+!public/activity.png
 
 # Tambahkan file kosong .gitkeep di setiap subfolder jika perlu
 !public/**/.gitkeep

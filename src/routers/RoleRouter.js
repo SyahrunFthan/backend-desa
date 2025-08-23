@@ -15,21 +15,21 @@ import verifyRole from "../middlewares/VerifyRole.js";
 
 const router = express.Router();
 
-router.get("/", verifyToken, verifyRole(["admin"]), index);
+router.get("/", verifyToken, verifyRole(["superadmin"]), index);
 router.post(
   "/",
   verifyToken,
-  verifyRole(["admin"]),
+  verifyRole(["superadmin"]),
   Validation(roleCreateSchema),
   store
 );
 router.put(
   "/:id",
   verifyToken,
-  verifyRole(["admin"]),
+  verifyRole(["superadmin"]),
   Validation(roleUpdateSchema),
   update
 );
-router.delete("/:id", verifyToken, verifyRole(["admin"]), destroy);
+router.delete("/:id", verifyToken, verifyRole(["superadmin"]), destroy);
 
 export default router;

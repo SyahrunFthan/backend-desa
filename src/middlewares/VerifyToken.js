@@ -16,7 +16,6 @@ const verifyToken = async (req, res, next) => {
       if (err) return res.sendStatus(403);
 
       req.userId = decoded.userId;
-      req.residentId = decoded.residentId;
 
       const user = await User.findOne({
         where: {

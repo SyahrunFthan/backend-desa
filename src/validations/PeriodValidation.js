@@ -4,10 +4,7 @@ import { Op } from "sequelize";
 
 const periodCreateSchema = z
   .object({
-    year: z.preprocess(
-      (val) => (typeof val === "string" ? parseInt(val, 10) : val),
-      z.number().min(1, "periods.year.required")
-    ),
+    year: z.number().min(1, "periods.year.required"),
   })
   .superRefine(async (data, ctx) => {
     const exists = await Period.findOne({

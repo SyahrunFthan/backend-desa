@@ -38,17 +38,12 @@ export const login = async (req, res) => {
 
   try {
     const userId = user.id;
-    const residentId = user.resident.id;
-    const accessToken = jwt.sign(
-      { userId, residentId },
-      process.env.ACCESS_TOKEN,
-      { expiresIn: "5m" }
-    );
-    const refreshToken = jwt.sign(
-      { userId, residentId },
-      process.env.REFRESH_TOKEN,
-      { expiresIn: "1d" }
-    );
+    const accessToken = jwt.sign({ userId }, process.env.ACCESS_TOKEN, {
+      expiresIn: "5m",
+    });
+    const refreshToken = jwt.sign({ userId }, process.env.REFRESH_TOKEN, {
+      expiresIn: "1d",
+    });
 
     await user.update({ token: refreshToken });
 
@@ -93,13 +88,10 @@ export const refreshToken = async (req, res) => {
       if (err) return res.sendStatus(403);
 
       const userId = decoded.userId;
-      const residentId = decoded.residentId;
 
-      const accessToken = jwt.sign(
-        { userId, residentId },
-        process.env.ACCESS_TOKEN,
-        { expiresIn: "5m" }
-      );
+      const accessToken = jwt.sign({ userId }, process.env.ACCESS_TOKEN, {
+        expiresIn: "5m",
+      });
 
       return res.status(200).json({ accessToken });
     });

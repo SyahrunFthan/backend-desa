@@ -18,24 +18,39 @@ import {
 
 const router = express.Router();
 
-router.get("/", verifyToken, verifyRole(["admin"]), index);
-router.get("/:id/income", verifyToken, verifyRole(["admin"]), showWithIncome);
-router.get("/:id/expense", verifyToken, verifyRole(["admin"]), showWithExpense);
+router.get("/", verifyToken, verifyRole(["admin", "superadmin"]), index);
+router.get(
+  "/:id/income",
+  verifyToken,
+  verifyRole(["admin", "superadmin"]),
+  showWithIncome
+);
+router.get(
+  "/:id/expense",
+  verifyToken,
+  verifyRole(["admin", "superadmin"]),
+  showWithExpense
+);
 router.post(
   "/",
   verifyToken,
-  verifyRole(["admin"]),
+  verifyRole(["admin", "superadmin"]),
   Validation(periodCreateSchema),
   store
 );
 router.put(
   "/:id",
   verifyToken,
-  verifyRole(["admin"]),
+  verifyRole(["admin", "superadmin"]),
   Validation(periodUpdateSchema),
   update
 );
-router.patch("/:id", verifyToken, verifyRole(["admin"]), upload);
-router.delete("/:id", verifyToken, verifyRole(["admin"]), destroy);
+router.patch("/:id", verifyToken, verifyRole(["admin", "superadmin"]), upload);
+router.delete(
+  "/:id",
+  verifyToken,
+  verifyRole(["admin", "superadmin"]),
+  destroy
+);
 
 export default router;

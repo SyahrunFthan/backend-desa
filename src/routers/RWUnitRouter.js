@@ -15,21 +15,26 @@ import {
 
 const router = express.Router();
 
-router.get("/", verifyToken, verifyRole(["admin"]), index);
+router.get("/", verifyToken, verifyRole(["admin", "superadmin"]), index);
 router.post(
   "/",
   verifyToken,
-  verifyRole(["admin"]),
+  verifyRole(["admin", "superadmin"]),
   Validation(rwUnitCreateSchema),
   store
 );
 router.put(
   "/:id",
   verifyToken,
-  verifyRole(["admin"]),
+  verifyRole(["admin", "superadmin"]),
   Validation(rwUnitUpdateSchema),
   update
 );
-router.delete("/:id", verifyToken, verifyRole(["admin"]), destroy);
+router.delete(
+  "/:id",
+  verifyToken,
+  verifyRole(["admin", "superadmin"]),
+  destroy
+);
 
 export default router;

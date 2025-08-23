@@ -16,22 +16,27 @@ import {
 
 const router = express.Router();
 
-router.get("/", verifyToken, verifyRole(["admin"]), index);
-router.get("/:id", verifyToken, verifyRole(["admin"]), show);
+router.get("/", verifyToken, verifyRole(["admin", "superadmin"]), index);
+router.get("/:id", verifyToken, verifyRole(["admin", "superadmin"]), show);
 router.post(
   "/",
   verifyToken,
-  verifyRole(["admin"]),
+  verifyRole(["admin", "superadmin"]),
   Validation(familyCardCreateSchema),
   store
 );
 router.put(
   "/:id",
   verifyToken,
-  verifyRole(["admin"]),
+  verifyRole(["admin", "superadmin"]),
   Validation(familyCardUpdateSchema),
   update
 );
-router.delete("/:id", verifyToken, verifyRole(["admin"]), destroy);
+router.delete(
+  "/:id",
+  verifyToken,
+  verifyRole(["admin", "superadmin"]),
+  destroy
+);
 
 export default router;

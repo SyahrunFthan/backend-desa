@@ -42,7 +42,7 @@ const SocialAssistance = db.define(
 SocialAssistance.belongsTo(Resident, {
   foreignKey: "resident_id",
   as: "resident",
-  onDelete: "restrict",
+  onDelete: "cascade",
 });
 Resident.hasMany(SocialAssistance, {
   foreignKey: "resident_id",

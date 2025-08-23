@@ -54,7 +54,7 @@ User.belongsTo(Role, {
 User.belongsTo(Resident, {
   foreignKey: "resident_id",
   as: "resident",
-  onDelete: "RESTRICT",
+  onDelete: "SET NULL",
 });
 
 export default User;

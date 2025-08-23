@@ -38,7 +38,7 @@
     "createSuccess": "Data berhasil disimpan.",
     "updateSuccess": "Data berhasil diperbarui.",
     "deleteSuccess": "Data berhasil dihapus.",
-    "error": "Terjadi kesalahan saat menyimpan data.",
+    "error": "Terjadi kesalahan pada server.",
     "notFound": "Data tidak ditemukan."
   },
   "residents": {
@@ -293,6 +293,13 @@
       "end_at": "Tanggal selesai wajib diisi",
       "status": "Status wajib diisi",
       "year": "Tahun wajib diisi"
+    }
+  },
+  "activity": {
+    "required": {
+      "name": "Nama aktivitas wajib diisi",
+      "date_of_activity": "Tanggal aktivitas wajib diisi",
+      "location": "Lokasi aktivitas wajib diisi"
     }
   }
 }

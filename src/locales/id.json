@@ -301,5 +301,14 @@
       "date_of_activity": "Tanggal aktivitas wajib diisi",
       "location": "Lokasi aktivitas wajib diisi"
     }
+  },
+  "facility": {
+    "required": {
+      "name": "Nama fasilitas wajib diisi",
+      "type_facility": "Jenis fasilitas wajib diisi",
+      "status": "Status fasilitas wajib diisi",
+      "latitude": "Latitude wajib diisi",
+      "longitude": "Longitude wajib diisi"
+    }
   }
 }

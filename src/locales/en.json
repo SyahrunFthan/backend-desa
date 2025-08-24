@@ -1,312 +1,321 @@
 {
-	"validation": {
-		"required": "{{field}} is required",
-		"unique": "{{field}} must be unique",
-		"password": {
-			"min": "Password must be at least 8 characters",
-			"uppercase": "Password must contain at least one uppercase letter",
-			"lowercase": "Password must contain at least one lowercase letter",
-			"number": "Password must contain at least one number",
-			"symbol": "Password must contain at least one symbol",
-			"invalid": "{{field}} is invalid"
-		},
-		"email": {
-			"exists": "Email already exists"
-		},
-		"username": {
-			"exists": "Username already exists"
-		},
-		"exists": "{{field}} already exists",
-		"invalid": "{{field}} is invalid",
-		"notFound": "validation.notFound"
-	},
-	"familyCard": {
-		"family_id": {
-			"required": "Family ID is required",
-			"min": "Family ID must be at least 16 characters",
-			"exists": "Family ID already exists"
-		},
-		"address": {
-			"required": "Address is required"
-		},
-		"total_family": {
-			"required": "Total family is required",
-			"min": "Total family must be at least 1"
-		}
-	},
-	"message": {
-		"createSuccess": "Data has been successfully saved.",
-		"updateSuccess": "Data has been successfully updated.",
-		"deleteSuccess": "Data has been successfully deleted.",
-		"error": "An error occurred while saving data.",
-		"notFound": "Data not found.",
-		"not_found": "message.not_found"
-	},
-	"residents": {
-		"resident_id": {
-			"required": "Resident ID is required",
-			"min": "Resident ID must be at least 16 characters",
-			"exists": "Resident ID already exists"
-		},
-		"family_card_id": {
-			"required": "Family Card ID is required"
-		},
-		"fullname": {
-			"required": "Fullname is required"
-		},
-		"gender": {
-			"required": "Gender is required"
-		},
-		"religion": {
-			"required": "Religion is required"
-		},
-		"citizen_status": {
-			"required": "Citizen status is required"
-		},
-		"place_of_birth": {
-			"required": "Place of birth is required"
-		},
-		"date_of_birth": {
-			"required": "Date of birth is required"
-		},
-		"family_status": {
-			"required": "Family status is required"
-		},
-		"address": {
-			"required": "Address is required"
-		},
-		"file": {
-			"type": "File extension must be png,jpg, or jpeg.",
-			"size": "Max image size 2mb"
-		},
-		"profesion": {
-			"required": "Profesion is required"
-		},
-		"profesion_status": {
-			"required": "Profesion status is required"
-		}
-	},
-	"Invalid input": " expected string, received undefined",
-	"employees": {
-		"employee_id": {
-			"min": "Employee ID must be at least 16 characters.",
-			"required": "Employee ID is required.",
-			"exists": "Employee ID already exists"
-		},
-		"fullname": {
-			"required": "Full name is required."
-		},
-		"gender": {
-			"required": "Gender is required."
-		},
-		"religion": {
-			"required": "Religion is required."
-		},
-		"place_of_birth": {
-			"required": "Place of birth is required."
-		},
-		"date_of_birth": {
-			"required": "Date of birth is required."
-		},
-		"position": {
-			"required": "Position is required."
-		},
-		"createSuccess": "Employee created successfully.",
-		"file": {
-			"size": "Maximum file size is 2MB.",
-			"type": "File extension must be png,jpg, or jpeg."
-		}
-	},
-	"incomingLetters": {
-		"code": {
-			"required": "Letter code is required.",
-			"exists": "Letter code already exists"
-		},
-		"date_of_letter": {
-			"required": "Date of the letter is required."
-		},
-		"sender": {
-			"required": "Sender of the letter is required."
-		},
-		"regarding": {
-			"required": "Subject of the letter is required."
-		},
-		"status_letter": {
-			"required": "Status of the letter is required."
-		},
-		"createSuccess": "Incoming letter created successfully.",
-		"file": {
-			"required": "File is required.",
-			"size": "Maximum file size is 2MB.",
-			"type": "File must be a .pdf."
-		}
-	},
-	"outgoingLetters": {
-		"code": {
-			"required": "Letter code is required.",
-			"exists": "Letter code already exists."
-		},
-		"date_of_letter": {
-			"required": "The date of the letter is required."
-		},
-		"regarding": {
-			"required": "The subject of the letter is required."
-		},
-		"objective": {
-			"required": "The objective of the letter is required."
-		},
-		"status_letter": {
-			"required": "The letter status is required."
-		},
-		"file": {
-			"required": "A file is required.",
-			"size": "The maximum allowed file size is 2MB.",
-			"type": "Only PDF files are allowed."
-		}
-	},
-	"Input not instance of File": "Input not instance of File",
-	"periods": {
-		"year": {
-			"required": "Year is required",
-			"exists": "Year already exists"
-		},
-		"file": {
-			"size": "The maximum allowed file size is 2MB.",
-			"type": "Only PDF files are allowed."
-		}
-	},
-	"incomes": {
-		"required": {
-			"period_id": "Period is required",
-			"code": "Code is required",
-			"name": "Name is required",
-			"abbreviation": "Abbreviation is required",
-			"year": "Year is required",
-			"amount": "Amount is required"
-		},
-		"exists": {
-			"code": "Code already exists"
-		}
-	},
-	"expense": {
-		"required": {
-			"period_id": "Period is required.",
-			"code": "Code is required.",
-			"name": "Name is required.",
-			"funding_source_id": "Funding source is required.",
-			"volume": "Volume is required.",
-			"unit": "Unit is required.",
-			"amount": "Amount is required."
-		},
-		"unique": {
-			"code": "Code already exists."
-		}
-	},
-	"region": {
-		"required": {
-			"leader_id": "Leader is required",
-			"name": "Name is required",
-			"geo_json": "Geo Json is required",
-			"color": "Color is required",
-			"land_area": "Land area is required"
-		},
-		"unique": {
-			"leader_id": "Leader already exists",
-			"color": "Color already exists"
-		}
-	},
-	"rw_unit": {
-		"required": {
-			"code": "Code is required",
-			"name_of_chairman": "Name of chairman is required"
-		},
-		"unique": {
-			"code": "Code already exists"
-		}
-	},
-	"rt_unit": {
-		"required": {
-			"code": "Code is required",
-			"name_of_chairman": "Name of chairman is required",
-			"rw_id": "RW is required"
-		},
-		"unique": {
-			"code": "Code already exists"
-		}
-	},
-	"service": {
-		"required": {
-			"file": "File is required",
-			"name": "Name is required",
-			"type_service": "Type is required",
-			"status_service": "Status is required"
-		},
-		"unique": {
-			"name": "Name already exists"
-		},
-		"file": {
-			"size": "Max image size 2mb",
-			"type": "File must be a .pdf or .docx"
-		}
-	},
-	"assistanceCategory": {
-		"required": {
-			"name": "Name is required",
-			"type_assistance": "Payment type is required",
-			"status": "Status is required",
-			"year": "Year is required"
-		},
-		"unique": {
-			"name": "Name already exists"
-		}
-	},
-	"socialAssistance": {
-		"unique": {
-			"resident_id": "Resident have been registered"
-		},
-		"required": {
-			"resident_id": "Resident is required",
-			"assistance_id": "Category is required",
-			"status_assistance": "Status is required",
-			"month_of_aid": "Month is required",
-			"receipt_at": "Date of receipt is required"
-		}
-	},
-	"tax": {
-		"required": {
-			"resident_id": "Resident is required",
-			"reference_number": "Reference number is required",
-			"taxpayer_name": "Taxpayer name is required",
-			"taxpayer_address": "Taxpayer address is required",
-			"land_area": "Land area is required",
-			"building_area": "Building area is required",
-			"amount": "Amount is required",
-			"status": "Status payment is required"
-		},
-		"unique": {
-			"reference_number": "Reference number already exists"
-		}
-	},
-	"development": {
-		"required": {
-			"name": "Development name is required",
-			"location": "Location is required",
-			"volume": "Volume is required.",
-			"budget": "Budget is required",
-			"source_of_fund": "Source of fund is required",
-			"latitude": "Latitude is required",
-			"longitude": "Longitude is required",
-			"start_at": "Start at is required",
-			"end_at": "Ens at is required",
-			"status": "Status is required",
-			"year": "Year is required"
-		}
-	},
-	"activity": {
-		"required": {
-			"name": "activity.required.name",
-			"date_of_activity": "activity.required.date_of_activity",
-			"location": "activity.required.location"
-		}
-	}
+  "validation": {
+    "required": "{{field}} is required",
+    "unique": "{{field}} must be unique",
+    "password": {
+      "min": "Password must be at least 8 characters",
+      "uppercase": "Password must contain at least one uppercase letter",
+      "lowercase": "Password must contain at least one lowercase letter",
+      "number": "Password must contain at least one number",
+      "symbol": "Password must contain at least one symbol",
+      "invalid": "{{field}} is invalid"
+    },
+    "email": {
+      "exists": "Email already exists"
+    },
+    "username": {
+      "exists": "Username already exists"
+    },
+    "exists": "{{field}} already exists",
+    "invalid": "{{field}} is invalid",
+    "notFound": "validation.notFound"
+  },
+  "familyCard": {
+    "family_id": {
+      "required": "Family ID is required",
+      "min": "Family ID must be at least 16 characters",
+      "exists": "Family ID already exists"
+    },
+    "address": {
+      "required": "Address is required"
+    },
+    "total_family": {
+      "required": "Total family is required",
+      "min": "Total family must be at least 1"
+    }
+  },
+  "message": {
+    "createSuccess": "Data has been successfully saved.",
+    "updateSuccess": "Data has been successfully updated.",
+    "deleteSuccess": "Data has been successfully deleted.",
+    "error": "There was an error on the server.",
+    "notFound": "Data not found.",
+    "not_found": "message.not_found"
+  },
+  "residents": {
+    "resident_id": {
+      "required": "Resident ID is required",
+      "min": "Resident ID must be at least 16 characters",
+      "exists": "Resident ID already exists"
+    },
+    "family_card_id": {
+      "required": "Family Card ID is required"
+    },
+    "fullname": {
+      "required": "Fullname is required"
+    },
+    "gender": {
+      "required": "Gender is required"
+    },
+    "religion": {
+      "required": "Religion is required"
+    },
+    "citizen_status": {
+      "required": "Citizen status is required"
+    },
+    "place_of_birth": {
+      "required": "Place of birth is required"
+    },
+    "date_of_birth": {
+      "required": "Date of birth is required"
+    },
+    "family_status": {
+      "required": "Family status is required"
+    },
+    "address": {
+      "required": "Address is required"
+    },
+    "file": {
+      "type": "File extension must be png,jpg, or jpeg.",
+      "size": "Max image size 2mb"
+    },
+    "profesion": {
+      "required": "Profesion is required"
+    },
+    "profesion_status": {
+      "required": "Profesion status is required"
+    }
+  },
+  "Invalid input": " expected string, received undefined",
+  "employees": {
+    "employee_id": {
+      "min": "Employee ID must be at least 16 characters.",
+      "required": "Employee ID is required.",
+      "exists": "Employee ID already exists"
+    },
+    "fullname": {
+      "required": "Full name is required."
+    },
+    "gender": {
+      "required": "Gender is required."
+    },
+    "religion": {
+      "required": "Religion is required."
+    },
+    "place_of_birth": {
+      "required": "Place of birth is required."
+    },
+    "date_of_birth": {
+      "required": "Date of birth is required."
+    },
+    "position": {
+      "required": "Position is required."
+    },
+    "createSuccess": "Employee created successfully.",
+    "file": {
+      "size": "Maximum file size is 2MB.",
+      "type": "File extension must be png,jpg, or jpeg."
+    }
+  },
+  "incomingLetters": {
+    "code": {
+      "required": "Letter code is required.",
+      "exists": "Letter code already exists"
+    },
+    "date_of_letter": {
+      "required": "Date of the letter is required."
+    },
+    "sender": {
+      "required": "Sender of the letter is required."
+    },
+    "regarding": {
+      "required": "Subject of the letter is required."
+    },
+    "status_letter": {
+      "required": "Status of the letter is required."
+    },
+    "createSuccess": "Incoming letter created successfully.",
+    "file": {
+      "required": "File is required.",
+      "size": "Maximum file size is 2MB.",
+      "type": "File must be a .pdf."
+    }
+  },
+  "outgoingLetters": {
+    "code": {
+      "required": "Letter code is required.",
+      "exists": "Letter code already exists."
+    },
+    "date_of_letter": {
+      "required": "The date of the letter is required."
+    },
+    "regarding": {
+      "required": "The subject of the letter is required."
+    },
+    "objective": {
+      "required": "The objective of the letter is required."
+    },
+    "status_letter": {
+      "required": "The letter status is required."
+    },
+    "file": {
+      "required": "A file is required.",
+      "size": "The maximum allowed file size is 2MB.",
+      "type": "Only PDF files are allowed."
+    }
+  },
+  "Input not instance of File": "Input not instance of File",
+  "periods": {
+    "year": {
+      "required": "Year is required",
+      "exists": "Year already exists"
+    },
+    "file": {
+      "size": "The maximum allowed file size is 2MB.",
+      "type": "Only PDF files are allowed."
+    }
+  },
+  "incomes": {
+    "required": {
+      "period_id": "Period is required",
+      "code": "Code is required",
+      "name": "Name is required",
+      "abbreviation": "Abbreviation is required",
+      "year": "Year is required",
+      "amount": "Amount is required"
+    },
+    "exists": {
+      "code": "Code already exists"
+    }
+  },
+  "expense": {
+    "required": {
+      "period_id": "Period is required.",
+      "code": "Code is required.",
+      "name": "Name is required.",
+      "funding_source_id": "Funding source is required.",
+      "volume": "Volume is required.",
+      "unit": "Unit is required.",
+      "amount": "Amount is required."
+    },
+    "unique": {
+      "code": "Code already exists."
+    }
+  },
+  "region": {
+    "required": {
+      "leader_id": "Leader is required",
+      "name": "Name is required",
+      "geo_json": "Geo Json is required",
+      "color": "Color is required",
+      "land_area": "Land area is required"
+    },
+    "unique": {
+      "leader_id": "Leader already exists",
+      "color": "Color already exists"
+    }
+  },
+  "rw_unit": {
+    "required": {
+      "code": "Code is required",
+      "name_of_chairman": "Name of chairman is required"
+    },
+    "unique": {
+      "code": "Code already exists"
+    }
+  },
+  "rt_unit": {
+    "required": {
+      "code": "Code is required",
+      "name_of_chairman": "Name of chairman is required",
+      "rw_id": "RW is required"
+    },
+    "unique": {
+      "code": "Code already exists"
+    }
+  },
+  "service": {
+    "required": {
+      "file": "File is required",
+      "name": "Name is required",
+      "type_service": "Type is required",
+      "status_service": "Status is required"
+    },
+    "unique": {
+      "name": "Name already exists"
+    },
+    "file": {
+      "size": "Max image size 2mb",
+      "type": "File must be a .pdf or .docx"
+    }
+  },
+  "assistanceCategory": {
+    "required": {
+      "name": "Name is required",
+      "type_assistance": "Payment type is required",
+      "status": "Status is required",
+      "year": "Year is required"
+    },
+    "unique": {
+      "name": "Name already exists"
+    }
+  },
+  "socialAssistance": {
+    "unique": {
+      "resident_id": "Resident have been registered"
+    },
+    "required": {
+      "resident_id": "Resident is required",
+      "assistance_id": "Category is required",
+      "status_assistance": "Status is required",
+      "month_of_aid": "Month is required",
+      "receipt_at": "Date of receipt is required"
+    }
+  },
+  "tax": {
+    "required": {
+      "resident_id": "Resident is required",
+      "reference_number": "Reference number is required",
+      "taxpayer_name": "Taxpayer name is required",
+      "taxpayer_address": "Taxpayer address is required",
+      "land_area": "Land area is required",
+      "building_area": "Building area is required",
+      "amount": "Amount is required",
+      "status": "Status payment is required"
+    },
+    "unique": {
+      "reference_number": "Reference number already exists"
+    }
+  },
+  "development": {
+    "required": {
+      "name": "Development name is required",
+      "location": "Location is required",
+      "volume": "Volume is required.",
+      "budget": "Budget is required",
+      "source_of_fund": "Source of fund is required",
+      "latitude": "Latitude is required",
+      "longitude": "Longitude is required",
+      "start_at": "Start at is required",
+      "end_at": "Ens at is required",
+      "status": "Status is required",
+      "year": "Year is required"
+    }
+  },
+  "activity": {
+    "required": {
+      "name": "activity.required.name",
+      "date_of_activity": "activity.required.date_of_activity",
+      "location": "activity.required.location"
+    }
+  },
+  "facility": {
+    "required": {
+      "name": "Name facility is required",
+      "type_facility": "Type facility is required",
+      "status": "Status facility is required",
+      "latitude": "Latitude is required",
+      "longitude": "Longitude is required"
+    }
+  }
 }

@@ -309,6 +309,10 @@
       "status": "Status fasilitas wajib diisi",
       "latitude": "Latitude wajib diisi",
       "longitude": "Longitude wajib diisi"
+    },
+    "file": {
+      "type": "Ekstensi file harus berupa png, jpg, atau jpeg.",
+      "size": "Ukuran maksimum gambar adalah 2MB"
     }
   }
 }

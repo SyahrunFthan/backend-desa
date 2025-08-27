@@ -30,7 +30,7 @@ import DevelopmentRouter from "./routers/DevelopmentRouter.js";
 import ActivityRouter from "./routers/ActivityRouter.js";
 import FacilityRouter from "./routers/FacilityRouter.js";
 import MainRouter from "./routers/main/MainRouter.js";
-// import createModel from "./models/User.js";
+// import createModel from "./models/Facility.js";
 dotenv.config();
 
 const app = express();

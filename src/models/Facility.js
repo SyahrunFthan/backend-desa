@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import db from "../configs/Database.js";
+import Region from "./Region.js";
 
 const Facility = db.define(
   "facilities",
@@ -9,6 +10,10 @@ const Facility = db.define(
       allowNull: false,
       primaryKey: true,
       defaultValue: DataTypes.UUIDV4,
+    },
+    region_id: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     name: {
       type: DataTypes.STRING,
@@ -42,10 +47,28 @@ const Facility = db.define(
       type: DataTypes.ENUM("active", "inactive"),
       allowNull: false,
     },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    path_image: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   },
   {
     freezeTableName: true,
   }
 );
+
+Facility.belongsTo(Region, {
+  foreignKey: "region_id",
+  as: "region",
+  onDelete: "set null",
+});
+Region.hasMany(Facility, {
+  foreignKey: "region_id",
+  as: "facilities",
+});
 
 export default Facility;

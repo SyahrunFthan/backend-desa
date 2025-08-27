@@ -316,6 +316,10 @@
       "status": "Status facility is required",
       "latitude": "Latitude is required",
       "longitude": "Longitude is required"
+    },
+    "file": {
+      "type": "File extension must be png,jpg, or jpeg.",
+      "size": "Max image size 2mb"
     }
   }
 }

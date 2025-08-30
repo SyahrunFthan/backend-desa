@@ -49,8 +49,8 @@ export const index = async (req, res) => {
 };
 
 export const store = async (req, res) => {
-  const { password } = req.body;
   try {
+    const password = process.env.PASSWORD_DEFAULT;
     const salt = await bcrypt.genSalt();
     const hashedPassword = await bcrypt.hash(password, salt);
 

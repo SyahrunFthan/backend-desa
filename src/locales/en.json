@@ -321,5 +321,20 @@
       "type": "File extension must be png,jpg, or jpeg.",
       "size": "Max image size 2mb"
     }
+  },
+  "village": {
+    "file": {
+      "type": "File extension must be png,jpg, or jpeg.",
+      "size": "Max image size 3mb"
+    }
+  },
+  "news": {
+    "required": {
+      "title": "Title is required",
+      "content": "Content is required",
+      "author": "Author is required",
+      "date_of_issue": "Date is required",
+      "status": "Status is required"
+    }
   }
 }

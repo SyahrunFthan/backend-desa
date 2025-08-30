@@ -314,5 +314,20 @@
       "type": "Ekstensi file harus berupa png, jpg, atau jpeg.",
       "size": "Ukuran maksimum gambar adalah 2MB"
     }
+  },
+  "village": {
+    "file": {
+      "type": "Ekstensi file harus berupa png, jpg, atau jpeg.",
+      "size": "Ukuran gambar maksimal 3MB"
+    }
+  },
+  "news": {
+    "required": {
+      "title": "Judul wajib diisi",
+      "content": "Konten wajib diisi",
+      "author": "Penulis wajib diisi",
+      "date_of_issue": "Tanggal wajib diisi",
+      "status": "Status berita wajib diisi"
+    }
   }
 }

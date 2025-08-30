@@ -1,61 +1,11 @@
 import { z } from "zod";
 import User from "../models/User.js";
-import { Op, where } from "sequelize";
-import bcrypt from "bcryptjs";
-
-const passwordSchema = z.string().superRefine((val, ctx) => {
-  if (!val || val.trim() === "") {
-    ctx.addIssue({
-      code: z.ZodIssueCode.custom,
-      message: "validation.required",
-    });
-    return;
-  }
-
-  if (val.length < 8) {
-    ctx.addIssue({
-      code: z.ZodIssueCode.too_small,
-      minimum: 8,
-      type: "string",
-      inclusive: true,
-      message: "validation.password.min",
-    });
-  }
-
-  if (!/[A-Z]/.test(val)) {
-    ctx.addIssue({
-      code: z.ZodIssueCode.custom,
-      message: "validation.password.uppercase",
-    });
-  }
-
-  if (!/[a-z]/.test(val)) {
-    ctx.addIssue({
-      code: z.ZodIssueCode.custom,
-      message: "validation.password.lowercase",
-    });
-  }
-
-  if (!/\d/.test(val)) {
-    ctx.addIssue({
-      code: z.ZodIssueCode.custom,
-      message: "validation.password.number",
-    });
-  }
-
-  if (!/[!@#$%^&*(),.?":{}|<>]/.test(val)) {
-    ctx.addIssue({
-      code: z.ZodIssueCode.custom,
-      message: "validation.password.symbol",
-    });
-  }
-});
+import { Op } from "sequelize";
 
 const userCreateSchema = z
   .object({
     email: z.string().email().nonempty("validation.required"),
     username: z.string().nonempty("validation.required"),
-    password: passwordSchema,
     resident_id: z.string().nonempty("validation.required"),
     role_id: z.string().nonempty("validation.required"),
   })

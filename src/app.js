@@ -30,11 +30,13 @@ import DevelopmentRouter from "./routers/DevelopmentRouter.js";
 import ActivityRouter from "./routers/ActivityRouter.js";
 import FacilityRouter from "./routers/FacilityRouter.js";
 import MainRouter from "./routers/main/MainRouter.js";
-// import createModel from "./models/Facility.js";
+import VillageRouter from "./routers/VillageRouter.js";
+import NewsRouter from "./routers/NewsRouter.js";
+import CommentNewsRouter from "./routers/CommentNewsRouter.js";
+// import createModel from "./models/News.js";
+
 dotenv.config();
-
 const app = express();
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -87,6 +89,9 @@ app.use("/development", DevelopmentRouter);
 app.use("/activity", ActivityRouter);
 app.use("/facility", FacilityRouter);
 app.use("/guest", MainRouter);
+app.use("/village", VillageRouter);
+app.use("/news", NewsRouter);
+app.use("/comment-news", CommentNewsRouter);
 
 const port = 5001;
 app.listen(port, () => console.log(`Server run at port ${port}`));

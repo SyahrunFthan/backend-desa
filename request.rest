@@ -48,3 +48,15 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:5001/user/1b477a22-fc97-4b18-8dd1-d14004622aee
+
+###
+POST http://localhost:5001/village
+Content-Type: application/json
+
+{
+    "name": "Desa Sikara Tobata"
+}
+
+###
+GET http://localhost:5001/village
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJkZTYxNGRkMC0xZTM0LTQzODQtYTMxOC0xNWYwYjRmOWNlZGEiLCJpYXQiOjE3NTY1NTQ4NTUsImV4cCI6MTc1NjU1NTE1NX0.vryEZ8XKRnuARmXn3ddz2xlPPYcswGoepP13eYs54dw

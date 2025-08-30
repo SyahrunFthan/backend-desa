@@ -30,6 +30,9 @@ export const login = async (req, res) => {
       .status(400)
       .json({ username: res.__("validation.invalid", { field: "Username" }) });
 
+  if (user.role.key === "user")
+    return res.status(409).json({ message: "Anda bukan admin" });
+
   const match = await bcrypt.compare(password, user.password);
   if (!match)
     return res

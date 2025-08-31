@@ -329,5 +329,19 @@
       "date_of_issue": "Tanggal wajib diisi",
       "status": "Status berita wajib diisi"
     }
+  },
+  "submissionService": {
+    "required": {
+      "service_id": "Layanan wajib diisi",
+      "resident_id": "NIK wajib diisi"
+    },
+    "file": {
+      "required": "File wajib diunggah",
+      "size": "Ukuran gambar maksimal 3 MB",
+      "type": "File harus berformat .pdf atau .docx"
+    },
+    "notFound": {
+      "resident_id": "Data Anda tidak ditemukan"
+    }
   }
 }

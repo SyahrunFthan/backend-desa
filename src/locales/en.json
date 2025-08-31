@@ -40,7 +40,9 @@
     "deleteSuccess": "Data has been successfully deleted.",
     "error": "There was an error on the server.",
     "notFound": "Data not found.",
-    "not_found": "message.not_found"
+    "not_found": "message.not_found",
+    "success": "message.success",
+    "rejectSuccess": "message.rejectSuccess"
   },
   "residents": {
     "resident_id": {
@@ -335,6 +337,21 @@
       "author": "Author is required",
       "date_of_issue": "Date is required",
       "status": "Status is required"
+    }
+  },
+  "Invalid UUID": "Invalid UUID",
+  "submissionService": {
+    "required": {
+      "service_id": "Service is required",
+      "resident_id": "Resident ID is required"
+    },
+    "file": {
+      "required": "File is required",
+      "size": "Max image size 3mb",
+      "type": "File must be a .pdf or .docx"
+    },
+    "notFound": {
+      "resident_id": "Your data was not found"
     }
   }
 }

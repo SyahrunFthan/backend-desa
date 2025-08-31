@@ -33,6 +33,7 @@ import MainRouter from "./routers/main/MainRouter.js";
 import VillageRouter from "./routers/VillageRouter.js";
 import NewsRouter from "./routers/NewsRouter.js";
 import CommentNewsRouter from "./routers/CommentNewsRouter.js";
+import SubmissionServiceRouter from "./routers/SubmissionServiceRouter.js";
 // import createModel from "./models/News.js";
 
 dotenv.config();
@@ -92,6 +93,7 @@ app.use("/guest", MainRouter);
 app.use("/village", VillageRouter);
 app.use("/news", NewsRouter);
 app.use("/comment-news", CommentNewsRouter);
+app.use("/submission-service", SubmissionServiceRouter);
 
 const port = 5001;
 app.listen(port, () => console.log(`Server run at port ${port}`));

@@ -3,8 +3,8 @@ import db from "../configs/Database.js";
 import Resident from "./Resident.js";
 import Service from "./Service.js";
 
-const ServiceSubmission = db.define(
-  "service_submissions",
+const SubmissionService = db.define(
+  "submission_services",
   {
     id: {
       type: DataTypes.STRING,
@@ -19,6 +19,15 @@ const ServiceSubmission = db.define(
     service_id: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    code: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    date_of_submission: {
+      type: DataTypes.DATEONLY,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
     is_signed: {
       type: DataTypes.BOOLEAN,
@@ -47,15 +56,15 @@ const ServiceSubmission = db.define(
   }
 );
 
-ServiceSubmission.belongsTo(Resident, {
+SubmissionService.belongsTo(Resident, {
   foreignKey: "resident_id",
   as: "resident",
   onDelete: "RESTRICT",
 });
-ServiceSubmission.belongsTo(Service, {
+SubmissionService.belongsTo(Service, {
   foreignKey: "service_id",
   as: "service",
   onDelete: "RESTRICT",
 });
 
-export default ServiceSubmission;
+export default SubmissionService;

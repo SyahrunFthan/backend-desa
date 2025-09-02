@@ -4,6 +4,7 @@ import fs from "fs";
 import SubmissionService from "../models/SubmissionService.js";
 import Resident from "../models/Resident.js";
 import Service from "../models/Service.js";
+import Employee from "../models/Employee.js";
 
 export const index = async (req, res) => {
   try {
@@ -64,6 +65,43 @@ export const index = async (req, res) => {
       });
 
     return res.status(200).json({ total, submissions });
+  } catch (error) {
+    return res.status(500).json({ message: res.__("message.error") });
+  }
+};
+
+export const show = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const submissionService = await SubmissionService.findByPk(id, {
+      include: [
+        {
+          model: Resident,
+          foreignKey: "resident_id",
+          as: "resident",
+        },
+        {
+          model: Service,
+          as: "service",
+          foreignKey: "service_id",
+        },
+      ],
+    });
+    if (!submissionService)
+      return res.status(404).json({ message: res.__("message.notFound") });
+
+    const employees = await Employee.findAll({
+      where: {
+        level: {
+          [Op.ne]: 0,
+        },
+        signature_file: {
+          [Op.ne]: null,
+        },
+      },
+    });
+
+    return res.status(200).json({ submissionService, employees });
   } catch (error) {
     return res.status(500).json({ message: res.__("message.error") });
   }
@@ -236,9 +274,37 @@ export const updateStatus = async (req, res) => {
     if (!submissionService)
       return res.status(404).json({ message: res.__("message.notFound") });
 
-    await submissionService.update(req.body);
+    let filename = submissionService.submission_file;
+    let filepath = submissionService.submission_path;
+    if (req.files && req.files.file) {
+      const file = req.files.file;
+      const ext = path.extname(file.name);
+      const allowedTypes = [".pdf"];
+      if (!allowedTypes.includes(ext.toLowerCase()))
+        return res
+          .status(422)
+          .json({ file: res.__("submissionService.file.type") });
+      if (submissionService.submission_file !== null) {
+        fs.unlinkSync(
+          `public/submission-services/${submissionService.submission_file}`
+        );
+      }
 
-    return res.status(200).json({ message: res.__("message.rejectSuccess") });
+      filename = Date.now() + ext;
+      filepath = `${req.protocol}://${req.get(
+        "host"
+      )}/public/submission-services/${filename}`;
+
+      await file.mv(`public/submission-services/${filename}`);
+    }
+
+    await submissionService.update({
+      ...req.body,
+      submission_file: filename,
+      submission_path: filepath,
+    });
+
+    return res.status(200).json({ message: res.__("message.updateSuccess") });
   } catch (error) {
     return res.status(500).json({ message: res.__("message.error") });
   }

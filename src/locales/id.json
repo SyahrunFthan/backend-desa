@@ -3,8 +3,8 @@
     "required": "{{field}} wajib diisi",
     "unique": "{{field}} harus unik",
     "password": {
-      "min": "Kata sandi minimal terdiri dari 8 karakter",
-      "uppercase": "Kata sandi harus mengandung setidaknya satu huruf kapital",
+      "min": "Kata sandi minimal 8 karakter",
+      "uppercase": "Kata sandi harus mengandung setidaknya satu huruf besar",
       "lowercase": "Kata sandi harus mengandung setidaknya satu huruf kecil",
       "number": "Kata sandi harus mengandung setidaknya satu angka",
       "symbol": "Kata sandi harus mengandung setidaknya satu simbol",
@@ -23,7 +23,7 @@
   "familyCard": {
     "family_id": {
       "required": "ID Keluarga wajib diisi",
-      "min": "ID Keluarga minimal terdiri dari 16 karakter",
+      "min": "ID Keluarga minimal 16 karakter",
       "exists": "ID Keluarga sudah terdaftar"
     },
     "address": {
@@ -39,16 +39,19 @@
     "updateSuccess": "Data berhasil diperbarui.",
     "deleteSuccess": "Data berhasil dihapus.",
     "error": "Terjadi kesalahan pada server.",
-    "notFound": "Data tidak ditemukan."
+    "notFound": "Data tidak ditemukan.",
+    "not_found": "Pesan tidak ditemukan",
+    "success": "Berhasil",
+    "rejectSuccess": "Data berhasil ditolak"
   },
   "residents": {
     "resident_id": {
-      "required": "NIK wajib diisi",
-      "min": "NIK harus terdiri dari minimal 16 karakter",
-      "exists": "NIK sudah terdaftar"
+      "required": "ID Warga wajib diisi",
+      "min": "ID Warga minimal 16 karakter",
+      "exists": "ID Warga sudah terdaftar"
     },
     "family_card_id": {
-      "required": "Nomor Kartu Keluarga wajib diisi"
+      "required": "ID Kartu Keluarga wajib diisi"
     },
     "fullname": {
       "required": "Nama lengkap wajib diisi"
@@ -60,7 +63,7 @@
       "required": "Agama wajib diisi"
     },
     "citizen_status": {
-      "required": "Status kewarganegaraan wajib diisi"
+      "required": "Status warga wajib diisi"
     },
     "place_of_birth": {
       "required": "Tempat lahir wajib diisi"
@@ -69,33 +72,37 @@
       "required": "Tanggal lahir wajib diisi"
     },
     "family_status": {
-      "required": "Status dalam keluarga wajib diisi"
+      "required": "Status keluarga wajib diisi"
     },
     "address": {
       "required": "Alamat wajib diisi"
     },
     "file": {
-      "type": "Ekstensi file harus berupa png, jpg, atau jpeg.",
-      "size": "Ukuran maksimum gambar adalah 2MB"
+      "type": "Ekstensi file harus png, jpg, atau jpeg.",
+      "size": "Ukuran gambar maksimal 2 MB"
     },
     "profesion": {
-      "required": "Profesi wajib diisi"
+      "required": "Pekerjaan wajib diisi"
+    },
+    "profesion_status": {
+      "required": "Status pekerjaan wajib diisi"
     }
   },
+  "Invalid input": "Input tidak valid, string diharapkan namun tidak ditemukan",
   "employees": {
     "employee_id": {
-      "min": "NIK harus terdiri dari minimal 16 karakter.",
-      "required": "NIK wajib diisi.",
-      "exists": "NIK sudah terdaftar"
+      "min": "ID Pegawai minimal 16 karakter.",
+      "required": "ID Pegawai wajib diisi.",
+      "exists": "ID Pegawai sudah terdaftar"
     },
     "fullname": {
       "required": "Nama lengkap wajib diisi."
     },
     "gender": {
-      "required": "Jenis kelamin wajib dipilih."
+      "required": "Jenis kelamin wajib diisi."
     },
     "religion": {
-      "required": "Agama wajib dipilih."
+      "required": "Agama wajib diisi."
     },
     "place_of_birth": {
       "required": "Tempat lahir wajib diisi."
@@ -106,46 +113,46 @@
     "position": {
       "required": "Jabatan wajib diisi."
     },
-    "createSuccess": "Aparatur berhasil ditambahkan.",
+    "createSuccess": "Pegawai berhasil ditambahkan.",
     "file": {
-      "type": "Ekstensi file harus berupa png, jpg, atau jpeg.",
-      "size": "Ukuran maksimum gambar adalah 2MB"
+      "size": "Ukuran file maksimal 2 MB.",
+      "type": "Ekstensi file harus png, jpg, atau jpeg."
     }
   },
   "incomingLetters": {
     "code": {
-      "required": "No. Surat harus diisi.",
-      "exists": "No. Surat sudah terdaftar"
+      "required": "Kode surat wajib diisi.",
+      "exists": "Kode surat sudah terdaftar"
     },
     "date_of_letter": {
-      "required": "Tanggal surat harus diisi."
+      "required": "Tanggal surat wajib diisi."
     },
     "sender": {
-      "required": "Pengirim surat harus diisi."
+      "required": "Pengirim wajib diisi."
     },
     "regarding": {
-      "required": "Perihal surat harus diisi."
+      "required": "Perihal wajib diisi."
     },
     "status_letter": {
-      "required": "Status surat harus diisi."
+      "required": "Status surat wajib diisi."
     },
     "createSuccess": "Surat masuk berhasil ditambahkan.",
     "file": {
-      "required": "File wajib diunggah.",
-      "size": "Ukuran file maksimal adalah 2MB.",
-      "type": "File harus berformat .pdf."
+      "required": "File wajib diisi.",
+      "size": "Ukuran file maksimal 2 MB.",
+      "type": "File harus berupa PDF."
     }
   },
   "outgoingLetters": {
     "code": {
-      "required": "No. Surat wajib diisi.",
-      "exists": "No. Surat sudah digunakan."
+      "required": "Kode surat wajib diisi.",
+      "exists": "Kode surat sudah terdaftar."
     },
     "date_of_letter": {
       "required": "Tanggal surat wajib diisi."
     },
     "regarding": {
-      "required": "Perihal surat wajib diisi."
+      "required": "Perihal wajib diisi."
     },
     "objective": {
       "required": "Tujuan surat wajib diisi."
@@ -154,20 +161,20 @@
       "required": "Status surat wajib diisi."
     },
     "file": {
-      "required": "Berkas wajib diunggah.",
-      "size": "Ukuran maksimum berkas adalah 2MB.",
-      "type": "Hanya berkas PDF yang diperbolehkan."
+      "required": "File wajib diisi.",
+      "size": "Ukuran file maksimal 2 MB.",
+      "type": "Hanya file PDF yang diperbolehkan."
     }
   },
-  "Invalid input": " expected array, received object",
+  "Input not instance of File": "Input bukan instance File",
   "periods": {
     "year": {
-      "required": "Tahun periode wajib diisi",
-      "exists": "Tahun periode sudah terdaftar"
+      "required": "Tahun wajib diisi",
+      "exists": "Tahun sudah terdaftar"
     },
     "file": {
-      "size": "Ukuran maksimum berkas adalah 2MB.",
-      "type": "Hanya berkas PDF yang diperbolehkan."
+      "size": "Ukuran file maksimal 2 MB.",
+      "type": "Hanya file PDF yang diperbolehkan."
     }
   },
   "incomes": {
@@ -180,34 +187,34 @@
       "amount": "Jumlah wajib diisi"
     },
     "exists": {
-      "code": "Kode sudah digunakan"
+      "code": "Kode sudah terdaftar"
     }
   },
   "expense": {
     "required": {
-      "period_id": "Periode wajib dipilih.",
+      "period_id": "Periode wajib diisi.",
       "code": "Kode wajib diisi.",
       "name": "Nama wajib diisi.",
-      "funding_source_id": "Sumber dana wajib dipilih.",
+      "funding_source_id": "Sumber dana wajib diisi.",
       "volume": "Volume wajib diisi.",
-      "unit": "Unit wajib diisi.",
+      "unit": "Satuan wajib diisi.",
       "amount": "Jumlah wajib diisi."
     },
     "unique": {
-      "code": "Kode sudah digunakan."
+      "code": "Kode sudah terdaftar."
     }
   },
   "region": {
     "required": {
-      "leader_id": "Pemimpin wajib diisi",
+      "leader_id": "Ketua wajib diisi",
       "name": "Nama wajib diisi",
-      "geo_json": "Geo Json wajib diisi",
+      "geo_json": "GeoJSON wajib diisi",
       "color": "Warna wajib diisi",
-      "land_area": "Luas wilayah wajib diisi"
+      "land_area": "Luas lahan wajib diisi"
     },
     "unique": {
-      "leader_id": "Pemimpin sudah ada",
-      "color": "Warna sudah digunakan"
+      "leader_id": "Ketua sudah terdaftar",
+      "color": "Warna sudah terdaftar"
     }
   },
   "rw_unit": {
@@ -216,7 +223,7 @@
       "name_of_chairman": "Nama ketua wajib diisi"
     },
     "unique": {
-      "code": "Kode sudah digunakan"
+      "code": "Kode sudah terdaftar"
     }
   },
   "rt_unit": {
@@ -226,39 +233,41 @@
       "rw_id": "RW wajib diisi"
     },
     "unique": {
-      "code": "Kode sudah digunakan"
+      "code": "Kode sudah terdaftar"
     }
   },
   "service": {
     "required": {
-      "file": "File wajib diunggah",
+      "file": "File wajib diisi",
       "name": "Nama wajib diisi",
-      "type_service": "Kategori layanan wajib diisi",
-      "status_service": "Status layanan wajib diisi"
+      "type_service": "Jenis wajib diisi",
+      "status_service": "Status wajib diisi"
     },
     "unique": {
-      "name": "Nama sudah ada"
+      "name": "Nama sudah terdaftar"
     },
     "file": {
-      "size": "Ukuran gambar maksimum 2 MB",
-      "type": "File harus berformat .pdf atau .docx"
+      "size": "Ukuran gambar maksimal 2 MB",
+      "type": "File harus berupa PDF atau DOCX"
     }
   },
   "assistanceCategory": {
     "required": {
       "name": "Nama wajib diisi",
-      "type_assistance": "Jenis pembayaran wajib diisi"
+      "type_assistance": "Jenis pembayaran wajib diisi",
+      "status": "Status wajib diisi",
+      "year": "Tahun wajib diisi"
     },
     "unique": {
-      "name": "Nama sudah ada"
+      "name": "Nama sudah terdaftar"
     }
   },
   "socialAssistance": {
     "unique": {
-      "resident_id": "Penduduk sudah terdaftar"
+      "resident_id": "Warga sudah terdaftar"
     },
     "required": {
-      "resident_id": "Penduduk wajib diisi",
+      "resident_id": "Warga wajib diisi",
       "assistance_id": "Kategori wajib diisi",
       "status_assistance": "Status wajib diisi",
       "month_of_aid": "Bulan wajib diisi",
@@ -267,7 +276,7 @@
   },
   "tax": {
     "required": {
-      "resident_id": "Penduduk wajib diisi",
+      "resident_id": "Warga wajib diisi",
       "reference_number": "Nomor referensi wajib diisi",
       "taxpayer_name": "Nama wajib pajak wajib diisi",
       "taxpayer_address": "Alamat wajib pajak wajib diisi",
@@ -284,11 +293,11 @@
     "required": {
       "name": "Nama pembangunan wajib diisi",
       "location": "Lokasi wajib diisi",
-      "volume": "Volume wajib diisi",
+      "volume": "Volume wajib diisi.",
       "budget": "Anggaran wajib diisi",
       "source_of_fund": "Sumber dana wajib diisi",
-      "latitude": "Garis lintang wajib diisi",
-      "longitude": "Garis bujur wajib diisi",
+      "latitude": "Lintang wajib diisi",
+      "longitude": "Bujur wajib diisi",
       "start_at": "Tanggal mulai wajib diisi",
       "end_at": "Tanggal selesai wajib diisi",
       "status": "Status wajib diisi",
@@ -297,9 +306,9 @@
   },
   "activity": {
     "required": {
-      "name": "Nama aktivitas wajib diisi",
-      "date_of_activity": "Tanggal aktivitas wajib diisi",
-      "location": "Lokasi aktivitas wajib diisi"
+      "name": "Nama kegiatan wajib diisi",
+      "date_of_activity": "Tanggal kegiatan wajib diisi",
+      "location": "Lokasi kegiatan wajib diisi"
     }
   },
   "facility": {
@@ -307,18 +316,18 @@
       "name": "Nama fasilitas wajib diisi",
       "type_facility": "Jenis fasilitas wajib diisi",
       "status": "Status fasilitas wajib diisi",
-      "latitude": "Latitude wajib diisi",
-      "longitude": "Longitude wajib diisi"
+      "latitude": "Lintang wajib diisi",
+      "longitude": "Bujur wajib diisi"
     },
     "file": {
-      "type": "Ekstensi file harus berupa png, jpg, atau jpeg.",
-      "size": "Ukuran maksimum gambar adalah 2MB"
+      "type": "Ekstensi file harus png, jpg, atau jpeg.",
+      "size": "Ukuran gambar maksimal 2 MB"
     }
   },
   "village": {
     "file": {
-      "type": "Ekstensi file harus berupa png, jpg, atau jpeg.",
-      "size": "Ukuran gambar maksimal 3MB"
+      "type": "Ekstensi file harus png, jpg, atau jpeg.",
+      "size": "Ukuran gambar maksimal 3 MB"
     }
   },
   "news": {
@@ -327,21 +336,34 @@
       "content": "Konten wajib diisi",
       "author": "Penulis wajib diisi",
       "date_of_issue": "Tanggal wajib diisi",
-      "status": "Status berita wajib diisi"
+      "status": "Status wajib diisi"
     }
   },
+  "Invalid UUID": "UUID tidak valid",
   "submissionService": {
     "required": {
       "service_id": "Layanan wajib diisi",
-      "resident_id": "NIK wajib diisi"
+      "resident_id": "ID Warga wajib diisi"
     },
     "file": {
-      "required": "File wajib diunggah",
+      "required": "File wajib diisi",
       "size": "Ukuran gambar maksimal 3 MB",
-      "type": "File harus berformat .pdf atau .docx"
+      "type": "File harus berupa PDF atau DOCX"
     },
     "notFound": {
       "resident_id": "Data Anda tidak ditemukan"
+    },
+    "unique": {
+      "code": "Nomor referensi sudah terdaftar"
+    }
+  },
+  "stallCategory": {
+    "file": {
+      "size": "Ukuran gambar maksimal 2 MB",
+      "type": "Ekstensi file harus png, jpg, atau jpeg."
+    },
+    "required": {
+      "name": "Nama wajib diisi"
     }
   }
 }

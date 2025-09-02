@@ -24,6 +24,13 @@ export const index = async (req, res) => {
       limit,
       offset,
       order: [["createdAt", "DESC"]],
+      include: [
+        {
+          model: Resident,
+          as: "residents",
+          foreignKey: "family_card_id",
+        },
+      ],
     });
 
     return res.status(200).json({ response, total });

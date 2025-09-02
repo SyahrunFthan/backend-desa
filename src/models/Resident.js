@@ -89,7 +89,7 @@ const Resident = db.define(
 Resident.belongsTo(Region, {
   foreignKey: "region_id",
   as: "region",
-  onDelete: "restrict",
+  onDelete: "set null",
 });
 Resident.belongsTo(FamilyCard, {
   foreignKey: "family_card_id",

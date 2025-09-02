@@ -34,7 +34,9 @@ import VillageRouter from "./routers/VillageRouter.js";
 import NewsRouter from "./routers/NewsRouter.js";
 import CommentNewsRouter from "./routers/CommentNewsRouter.js";
 import SubmissionServiceRouter from "./routers/SubmissionServiceRouter.js";
-// import createModel from "./models/News.js";
+import StallRouter from "./routers/StallRouter.js";
+import StallCategoryRouter from "./routers/StallCategoryRouter.js";
+// import createModel from "./models/Stall.js";
 
 dotenv.config();
 const app = express();
@@ -94,6 +96,8 @@ app.use("/village", VillageRouter);
 app.use("/news", NewsRouter);
 app.use("/comment-news", CommentNewsRouter);
 app.use("/submission-service", SubmissionServiceRouter);
+app.use("/stall", StallRouter);
+app.use("/stall-category", StallCategoryRouter);
 
 const port = 5001;
 app.listen(port, () => console.log(`Server run at port ${port}`));

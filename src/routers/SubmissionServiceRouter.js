@@ -3,6 +3,7 @@ import {
   destroy,
   getHistory,
   index,
+  show,
   store,
   update,
   updateStatus,
@@ -25,10 +26,11 @@ router.get(
   verifyRole(["admin", "superadmin"]),
   getHistory
 );
+router.get("/:id", verifyToken, verifyRole(["admin", "superadmin"]), show);
 router.post(
   "/",
-  verifyToken,
-  verifyRole(["user"]),
+  // verifyToken,
+  // verifyRole(["user"]),
   Validation(submissionServiceCreateSchema),
   store
 );

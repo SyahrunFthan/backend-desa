@@ -1,5 +1,8 @@
 import { z } from "zod";
 import Resident from "../models/Resident.js";
+import SubmissionService from "../models/SubmissionService.js";
+import { Op } from "sequelize";
+import { id } from "zod/v4/locales";
 
 export const submissionServiceCreateSchema = z
   .object({
@@ -40,8 +43,9 @@ export const submissionServiceUpdateStatusSchema = z
     status_submission: z.string().nonempty("submissionService.required.status"),
     code: z.string().trim().nullish(),
     note: z.string().trim().nullish(),
+    id: z.uuidv4(),
   })
-  .superRefine((data, ctx) => {
+  .superRefine(async (data, ctx) => {
     if (data.status_submission === "rejected" && !data.note) {
       ctx.addIssue({
         code: "custom",
@@ -49,11 +53,32 @@ export const submissionServiceUpdateStatusSchema = z
         path: ["note"],
       });
     }
-    if (data.status_submission === "approved" && !data.code) {
-      ctx.addIssue({
-        code: "custom",
-        message: "submissionService.required.code",
-        path: ["code"],
+
+    if (data.status_submission === "approved") {
+      const code = data.code?.trim();
+
+      if (!code) {
+        ctx.addIssue({
+          code: "custom",
+          message: "submissionService.required.code",
+          path: ["code"],
+        });
+        return;
+      }
+
+      const existsCode = await SubmissionService.findOne({
+        where: {
+          code,
+          id: { [Op.ne]: data.id },
+        },
       });
+
+      if (existsCode) {
+        ctx.addIssue({
+          code: "custom",
+          message: "submissionService.unique.code",
+          path: ["code"],
+        });
+      }
     }
   });

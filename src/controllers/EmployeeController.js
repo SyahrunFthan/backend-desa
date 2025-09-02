@@ -2,6 +2,7 @@ import { Op } from "sequelize";
 import Employee from "../models/Employee.js";
 import path from "path";
 import fs from "fs";
+import Region from "../models/Region.js";
 
 export const index = async (req, res) => {
   try {
@@ -67,36 +68,10 @@ export const store = async (req, res) => {
       await file.mv(`public/employees/${filename}`);
     }
 
-    let signaturename = null;
-    let signaturepath = null;
-    if (req.files && req.files.signature) {
-      const file = req.files.signature;
-      const filesize = file.data.length;
-      const ext = path.extname(file.name);
-      const allowedTypes = [".png", ".jpg", ".jpeg"];
-      if (!allowedTypes.includes(ext.toLowerCase()))
-        return res
-          .status(422)
-          .json({ signature: res.__("employees.file.type") });
-      if (filesize > 2000000)
-        return res
-          .status(422)
-          .json({ signature: res.__("employees.file.size") });
-
-      signaturename = Date.now() + "-" + employee_id + ext;
-      signaturepath = `${req.protocol}://${req.get(
-        "host"
-      )}/public/signatures/${signaturename}`;
-
-      await file.mv(`public/signatures/${signaturename}`);
-    }
-
     await Employee.create({
       ...req.body,
       image: filename,
       path_image: filepath,
-      signature_file: signaturename,
-      signature_path: signaturepath,
     });
 
     return res.status(201).json({ message: res.__("employees.createSuccess") });
@@ -139,40 +114,48 @@ export const update = async (req, res) => {
       await file.mv(`public/employees/${filename}`);
     }
 
-    let signaturename = employee.signature_file;
-    let signaturepath = employee.signature_path;
-    if (req.files && req.files.signature) {
-      const file = req.files.signature;
-      const filesize = file.data.length;
-      const ext = path.extname(file.name);
-      const allowedTypes = [".png", ".jpg", ".jpeg"];
-      if (!allowedTypes.includes(ext.toLowerCase()))
-        return res
-          .status(422)
-          .json({ signature: res.__("employees.file.type") });
-      if (filesize > 2000000)
-        return res
-          .status(422)
-          .json({ signature: res.__("employees.file.size") });
-
-      signaturename = Date.now() + "-" + employee_id + ext;
-      signaturepath = `${req.protocol}://${req.get(
-        "host"
-      )}/public/signatures/${signaturename}`;
-
-      if (employee.signature_file !== null) {
-        fs.unlinkSync(`public/signatures/${employee.signature_file}`);
-      }
-
-      await file.mv(`public/signatures/${signaturename}`);
-    }
-
     await employee.update({
       ...req.body,
       image: filename,
       path_image: filepath,
-      signature_file: signaturename,
-      signature_path: signaturepath,
+    });
+
+    return res.status(200).json({ message: res.__("message.updateSuccess") });
+  } catch (error) {
+    return res.status(500).json({ message: res.__("message.error") });
+  }
+};
+
+export const upload = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const employee = await Employee.findByPk(id);
+
+    if (!employee)
+      return res.status(404).json({ message: res.__("message.notFound") });
+
+    const file = req.files.file;
+    const filesize = file.data.length;
+    const ext = path.extname(file.name);
+    const allowedTypes = [".png", ".jpg", ".jpeg"];
+    if (!allowedTypes.includes(ext.toLowerCase()))
+      return res.status(422).json({ file: res.__("employees.file.type") });
+    if (filesize > 2000000)
+      return res.status(422).json({ file: res.__("employees.file.size") });
+    if (employee.signature_file !== null) {
+      fs.unlinkSync(`public/signatures/${employee.signature_file}`);
+    }
+
+    const filename = Date.now() + ext;
+    const filepath = `${req.protocol}://${req.get(
+      "host"
+    )}/public/signatures/${filename}`;
+
+    await file.mv(`public/signatures/${filename}`);
+
+    await employee.update({
+      signature_file: filename,
+      signature_path: filepath,
     });
 
     return res.status(200).json({ message: res.__("message.updateSuccess") });
@@ -185,18 +168,30 @@ export const destroy = async (req, res) => {
   try {
     const { id } = req.params;
     const employee = await Employee.findByPk(id);
+    const checkRegion = await Region.findOne({
+      where: {
+        leader_id: id,
+      },
+    });
+
+    if (checkRegion)
+      return res
+        .status(409)
+        .json({
+          message: "Tidak dapat dihapus, pegawai ini masih memiliki dusun",
+        });
+
+    await employee.destroy();
+
     if (!employee)
       return res.status(404).json({ message: res.__("message.notFound") });
 
     if (employee.image !== "default.png") {
       fs.unlinkSync(`public/employees/${employee.image}`);
     }
-
     if (employee.signature_file !== null) {
       fs.unlinkSync(`public/signatures/${employee.signature_file}`);
     }
-
-    await employee.destroy();
 
     return res.status(200).json({ message: res.__("message.deleteSuccess") });
   } catch (error) {

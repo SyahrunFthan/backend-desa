@@ -38,11 +38,8 @@
     "createSuccess": "Data has been successfully saved.",
     "updateSuccess": "Data has been successfully updated.",
     "deleteSuccess": "Data has been successfully deleted.",
-    "error": "There was an error on the server.",
-    "notFound": "Data not found.",
-    "not_found": "message.not_found",
-    "success": "message.success",
-    "rejectSuccess": "message.rejectSuccess"
+    "error": "There was a server error.",
+    "notFound": "Data not found."
   },
   "residents": {
     "resident_id": {
@@ -54,7 +51,7 @@
       "required": "Family Card ID is required"
     },
     "fullname": {
-      "required": "Fullname is required"
+      "required": "Full name is required"
     },
     "gender": {
       "required": "Gender is required"
@@ -78,17 +75,17 @@
       "required": "Address is required"
     },
     "file": {
-      "type": "File extension must be png,jpg, or jpeg.",
-      "size": "Max image size 2mb"
+      "type": "File extension must be png, jpg, or jpeg.",
+      "size": "Maximum image size is 2 MB"
     },
     "profesion": {
-      "required": "Profesion is required"
+      "required": "Profession is required"
     },
     "profesion_status": {
-      "required": "Profesion status is required"
+      "required": "Profession status is required"
     }
   },
-  "Invalid input": " expected string, received undefined",
+  "Invalid input": "Expected string, received undefined",
   "employees": {
     "employee_id": {
       "min": "Employee ID must be at least 16 characters.",
@@ -115,8 +112,8 @@
     },
     "createSuccess": "Employee created successfully.",
     "file": {
-      "size": "Maximum file size is 2MB.",
-      "type": "File extension must be png,jpg, or jpeg."
+      "size": "Maximum file size is 2 MB.",
+      "type": "File extension must be png, jpg, or jpeg."
     }
   },
   "incomingLetters": {
@@ -125,22 +122,22 @@
       "exists": "Letter code already exists"
     },
     "date_of_letter": {
-      "required": "Date of the letter is required."
+      "required": "Letter date is required."
     },
     "sender": {
-      "required": "Sender of the letter is required."
+      "required": "Sender is required."
     },
     "regarding": {
-      "required": "Subject of the letter is required."
+      "required": "Subject is required."
     },
     "status_letter": {
-      "required": "Status of the letter is required."
+      "required": "Letter status is required."
     },
     "createSuccess": "Incoming letter created successfully.",
     "file": {
       "required": "File is required.",
-      "size": "Maximum file size is 2MB.",
-      "type": "File must be a .pdf."
+      "size": "Maximum file size is 2 MB.",
+      "type": "File must be a PDF."
     }
   },
   "outgoingLetters": {
@@ -149,31 +146,31 @@
       "exists": "Letter code already exists."
     },
     "date_of_letter": {
-      "required": "The date of the letter is required."
+      "required": "Letter date is required."
     },
     "regarding": {
-      "required": "The subject of the letter is required."
+      "required": "Subject is required."
     },
     "objective": {
-      "required": "The objective of the letter is required."
+      "required": "Objective is required."
     },
     "status_letter": {
-      "required": "The letter status is required."
+      "required": "Letter status is required."
     },
     "file": {
-      "required": "A file is required.",
-      "size": "The maximum allowed file size is 2MB.",
+      "required": "File is required.",
+      "size": "Maximum file size is 2 MB.",
       "type": "Only PDF files are allowed."
     }
   },
-  "Input not instance of File": "Input not instance of File",
+  "Input not instance of File": "Input is not an instance of File",
   "periods": {
     "year": {
       "required": "Year is required",
       "exists": "Year already exists"
     },
     "file": {
-      "size": "The maximum allowed file size is 2MB.",
+      "size": "Maximum file size is 2 MB.",
       "type": "Only PDF files are allowed."
     }
   },
@@ -208,7 +205,7 @@
     "required": {
       "leader_id": "Leader is required",
       "name": "Name is required",
-      "geo_json": "Geo Json is required",
+      "geo_json": "GeoJSON is required",
       "color": "Color is required",
       "land_area": "Land area is required"
     },
@@ -247,8 +244,8 @@
       "name": "Name already exists"
     },
     "file": {
-      "size": "Max image size 2mb",
-      "type": "File must be a .pdf or .docx"
+      "size": "Maximum image size is 2 MB",
+      "type": "File must be a PDF or DOCX"
     }
   },
   "assistanceCategory": {
@@ -264,7 +261,7 @@
   },
   "socialAssistance": {
     "unique": {
-      "resident_id": "Resident have been registered"
+      "resident_id": "Resident has already been registered"
     },
     "required": {
       "resident_id": "Resident is required",
@@ -283,7 +280,7 @@
       "land_area": "Land area is required",
       "building_area": "Building area is required",
       "amount": "Amount is required",
-      "status": "Status payment is required"
+      "status": "Payment status is required"
     },
     "unique": {
       "reference_number": "Reference number already exists"
@@ -298,8 +295,8 @@
       "source_of_fund": "Source of fund is required",
       "latitude": "Latitude is required",
       "longitude": "Longitude is required",
-      "start_at": "Start at is required",
-      "end_at": "Ens at is required",
+      "start_at": "Start date is required",
+      "end_at": "End date is required",
       "status": "Status is required",
       "year": "Year is required"
     }
@@ -313,21 +310,21 @@
   },
   "facility": {
     "required": {
-      "name": "Name facility is required",
-      "type_facility": "Type facility is required",
-      "status": "Status facility is required",
+      "name": "Facility name is required",
+      "type_facility": "Facility type is required",
+      "status": "Facility status is required",
       "latitude": "Latitude is required",
       "longitude": "Longitude is required"
     },
     "file": {
-      "type": "File extension must be png,jpg, or jpeg.",
-      "size": "Max image size 2mb"
+      "type": "File extension must be png, jpg, or jpeg.",
+      "size": "Maximum image size is 2 MB"
     }
   },
   "village": {
     "file": {
-      "type": "File extension must be png,jpg, or jpeg.",
-      "size": "Max image size 3mb"
+      "type": "File extension must be png, jpg, or jpeg.",
+      "size": "Maximum image size is 3 MB"
     }
   },
   "news": {
@@ -347,11 +344,23 @@
     },
     "file": {
       "required": "File is required",
-      "size": "Max image size 3mb",
-      "type": "File must be a .pdf or .docx"
+      "size": "Maximum image size is 3 MB",
+      "type": "File must be a PDF or DOCX"
     },
     "notFound": {
       "resident_id": "Your data was not found"
+    },
+    "unique": {
+      "code": "Reference number already exists"
+    }
+  },
+  "stallCategory": {
+    "file": {
+      "size": "Maximum image size is 2 MB",
+      "type": "File extension must be png, jpg, or jpeg."
+    },
+    "required": {
+      "name": "Name is required"
     }
   }
 }

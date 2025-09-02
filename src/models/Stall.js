@@ -36,6 +36,11 @@ const Stall = db.define(
       type: DataTypes.CHAR(20),
       allowNull: false,
     },
+    status: {
+      type: DataTypes.ENUM("active", "inactive"),
+      allowNull: false,
+      defaultValue: "active",
+    },
     image: {
       type: DataTypes.STRING,
       allowNull: false,

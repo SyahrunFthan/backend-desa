@@ -119,7 +119,7 @@ export const store = async (req, res) => {
       const fileSize = file.data.length;
       const ext = path.extname(file.name);
       const allowedTypes = [".png", ".jpg", ".jpeg"];
-      filename = Date.now() + "-" + req.body.resident_id + ext;
+      filename = Date.now() + ext;
 
       if (!allowedTypes.includes(ext.toLowerCase()))
         return res.status(422).json({ file: res.__("residents.file.type") });
@@ -131,7 +131,7 @@ export const store = async (req, res) => {
         "host"
       )}/public/residents/${filename}`;
 
-      file.mv(`public/residents/${filename}`);
+      await file.mv(`public/residents/${filename}`);
     }
 
     await Resident.create({
@@ -162,7 +162,6 @@ export const update = async (req, res) => {
       const fileSize = file.data.length;
       const ext = path.extname(file.name);
       const allowedTypes = [".png", ".jpg", ".jpeg"];
-      filename = Date.now() + "-" + req.body.resident_id + ext;
 
       if (!allowedTypes.includes(ext.toLowerCase()))
         return res.status(422).json({ file: res.__("residents.file.types") });
@@ -170,15 +169,16 @@ export const update = async (req, res) => {
       if (fileSize > 2000000)
         return res.status(422).json({ file: res.__("residents.file.size") });
 
+      if (resident.image !== "default.png") {
+        fs.unlinkSync(`public/residents/${resident.image}`);
+      }
+
+      filename = Date.now() + ext;
       path_image = `${req.protocol}://${req.get(
         "host"
       )}/public/residents/${filename}`;
 
-      file.mv(`public/residents/${filename}`);
-
-      if (resident.image !== "default.png") {
-        fs.unlinkSync(`public/residents/${resident?.image}`);
-      }
+      await file.mv(`public/residents/${filename}`);
     }
 
     await resident.update({
